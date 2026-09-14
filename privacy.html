@@ -25,7 +25,7 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="updated">Trich Reset · Last updated: 19 July 2026</p>
+<p class="updated">Trich Reset · Last updated: 14 September 2026</p>
 
 <p>Trich Reset ("the app", "we", "us") is a self-help and wellness app that supports people managing trichotillomania (hair pulling). Your privacy matters deeply to us — the nature of this app means the information you share with it is personal, and we treat it that way.</p>
 
@@ -36,6 +36,7 @@
 <ul>
   <li><strong>Account information:</strong> your email address, a display alias you choose, and your voice preference for meditations.</li>
   <li><strong>Wellbeing data you enter:</strong> daily mood check-ins, journal entries, urge/pull logs, and your answers to the optional intake questionnaire (such as pulling style and triggers, used only to recommend meditations to you).</li>
+  <li><strong>Regrowth progress photos (optional):</strong> if you use the photo tracker, the photos you take or choose, the body area you tag, and the date. They are used only to show you your own progress over time.</li>
   <li><strong>App activity:</strong> meditation listening progress, streaks, badges, and XP — used to power the app's features for you.</li>
   <li><strong>Notification token:</strong> a device token, if you enable notifications, so the app can deliver reminders you've asked for.</li>
   <li><strong>Payment information:</strong> subscription payments are processed by our payment providers (such as Google Play). We never see or store your card details.</li>
@@ -52,9 +53,18 @@
 <h2>Where your data lives</h2>
 <p>Your data is stored securely with Supabase, our database and storage provider, and is encrypted in transit (HTTPS/TLS). Access to your data is protected by row-level security: your entries are readable only by your own account.</p>
 
+<h2>Your progress photos</h2>
+<ul>
+  <li>Photos are stored in private storage that only your account can access. They are never public, and the app only displays them through short-lived private links.</li>
+  <li>We do not share your photos with anyone, use them for advertising, or use them to train AI.</li>
+  <li>Location and device information (EXIF data) is not kept with your photos.</li>
+  <li>The app asks for camera access only when you choose to take a photo. Choosing a photo from your library uses your phone's photo picker, which shares only the photo you select.</li>
+  <li>Deleting a photo in the app permanently deletes the file. Deleting your account permanently deletes all of your photos.</li>
+</ul>
+
 <h2>Third-party services we use</h2>
 <ul>
-  <li><strong>Supabase</strong> — database, authentication, and audio storage.</li>
+  <li><strong>Supabase</strong> — database, authentication, audio storage, and private photo storage.</li>
   <li><strong>Google Play Billing</strong> — subscription payments on Android.</li>
   <li><strong>Expo</strong> — app infrastructure and notification delivery.</li>
 </ul>
