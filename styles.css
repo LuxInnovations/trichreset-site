@@ -645,3 +645,10 @@
   .curve { height: 48px; }
   .band:has(> .curve-up) { padding-top: calc(var(--web-section-gap) + 24px); }
 }
+
+/* ---------- App screens strip (Play Store frames) ---------- */
+.screens { list-style: none; margin: 0; padding: 0 0 var(--space-base); display: flex; gap: var(--space-lg);
+  overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.screens li { flex: 0 0 auto; width: clamp(200px, 22vw, 270px); scroll-snap-align: start; }
+.screens img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); }
+.screens:focus-visible { outline: 2px solid var(--blue-primary); outline-offset: 4px; }
