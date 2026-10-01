@@ -1,0 +1,259 @@
+/* ===========================================================================
+   THE TRICH RESET — web tokens
+   Derived from Brand Identity\trich-reset-brand-bible.md (v1.0), extended with
+   a v2 light-and-dark ZONE SYSTEM for the marketing site.
+   The app values are authoritative. The web-only additions at the bottom
+   scale the type up for a desktop marketing page, following howwefeel.org's
+   60 / 40 / 15 scale.
+
+   ZONE SYSTEM: the avatar for this page is anxious and self-conscious, not
+   a developer. A page that is dark navy top-to-bottom reads as a tool, not
+   as somewhere safe to sit with a hard topic. So the calm, cool pale-mist
+   palette below is now the DEFAULT everywhere — the "sitting and talking"
+   sections (what's inside, streaks, logging, lessons, FAQ, trust). The
+   original dark-navy brand palette still exists in full, scoped to a
+   `.dark-zone` class used only where a premium, decisive, "this is a real
+   product" beat is wanted: nav, hero, pricing, footer, the audio player,
+   and the CSS "screen" mockups (they represent the actual in-app UI, so
+   they stay dark regardless of the section they sit in). Do not invent
+   new hues — only the neutral surface/ink tokens flip between zones. */
+
+/* Fonts — free on Google Fonts. Figtree (headline) over Nunito Sans (body).
+   Both humanist sans: soft, rounded terminals, no serif at all. A meditation
+   app reads calmer all-sans (Headspace, Calm both do) than with a literary
+   serif, which brings a newspaper/editorial register this audience doesn't
+   need. Hierarchy comes from size and weight, not from a change of species.
+   Put this in <head>, do not @import (render-blocking cascade):
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet"
+     href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500&family=Nunito+Sans:wght@400;500&display=swap"> */
+
+:root {
+  /* --- Surfaces. Calm, cool pale-mist is the default zone — blue-grey,
+         not cream, so it reads as calm/clinical-trustworthy rather than
+         cottage-warm. Depth from layering only — no shadows, no blur. --- */
+  --bg-base:        #F2F6F8;   /* page background — pale mist */
+  --bg-surface:     #E4EDF1;   /* alternate bands, cards, panels */
+  --bg-raised:      #D8E4E9;   /* deeper alternate band, elevated cards */
+  --bg-overlay:     #CBE0E6;   /* hover, selected, stat blocks */
+
+  /* --- Brand. Unchanged in both zones — these are identity colours. --- */
+  --blue-primary:   #5B8DB5;   /* brand blue — icons, accents, decoration */
+  --blue-deep:      #3D6C90;   /* button FILLS only. #5B8DB5 behind white
+                                  label text is 3.0:1, under the 4.5:1 AA
+                                  floor; this is the same hue taken darker
+                                  so the main CTA is legible on a phone in
+                                  daylight. Same family, not a new colour. */
+  --blue-light:     #7BADC9;   /* secondary icons, links (dark zone) */
+  --blue-mist:      #A8CCE3;   /* secondary text, labels (dark zone) */
+  --mauve-primary:  #9E8AC4;   /* milestones, streak accent */
+  --mauve-light:    #B0A0D4;   /* mauve text on dark */
+
+  /* --- Text. Soft cool slate ink, never pure black, calm zone default. --- */
+  --text-primary:   #24323C;
+  --text-secondary: #4C6472;
+  --text-muted:     #79939F;
+
+  /* --- Semantic --- */
+  --success:        #5A9E6B;
+  --warning:        #C4963A;
+  --error:          #B85C5C;
+
+  /* --- Borders. Never solid at full opacity. --- */
+  --border:         rgba(36, 50, 60, 0.09);
+  --border-strong:  rgba(36, 50, 60, 0.20);
+  --border-mauve:   rgba(158, 138, 196, 0.35);
+
+  /* --- Label / link accent. Deep enough to read on pale mist; the dark
+         zone restores the original light-on-navy tones below. --- */
+  --label-color:    #2C5C78;
+  --link-color:     #27607F;
+
+  /* --- Fixed zone colours. These NEVER flip between light and dark zones.
+         Section-transition curves have to paint the colour of the section
+         NEXT DOOR, which may be in the other zone — so they must not read
+         the flipping tokens above, or a curve inside .dark-zone paints navy
+         over a pale section. Every curve colour comes from here. --- */
+  --fixed-base:    #F2F6F8;
+  --fixed-surface: #E4EDF1;
+  --fixed-raised:  #D8E4E9;
+  --fixed-navy:    #0D1B2A;
+
+  /* --- Type --- */
+  --font-headline: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:     'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* --- Spacing: 8px base grid. Multiples of 4 or 8 only. --- */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:  12px;
+  --space-base:16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+
+  /* --- Radius --- */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-pill:100px;   /* ALL buttons are pills */
+  --radius-icon: 14px;
+  --radius-full: 50%;
+
+  /* ======================= WEB-ONLY ADDITIONS =============================
+     The app scale (32/24/20/17px) is phone-sized. A desktop marketing page
+     needs the reference site's contrast: 60 / 40 / 15 with nothing between.
+     ====================================================================== */
+  --web-display: clamp(38px, 6vw, 60px);   /* h1 — hero only, one per page */
+  --web-h2:      clamp(28px, 4vw, 40px);   /* section headlines */
+  --web-h3:      20px;                     /* card / block headings */
+  --web-body:    17px;                     /* 15px is tight on desktop */
+  --web-small:   14px;
+  --web-label:   11px;                     /* uppercase, 0.07em tracking */
+  --web-number:  clamp(40px, 6vw, 64px);   /* prices, counts */
+
+  /* Was clamp(80px, 12vw, 160px). 160px top AND bottom, on feature grids
+     that also centre their columns, left 300-500px voids mid-page. */
+  --web-section-gap: clamp(64px, 8vw, 112px);   /* between screens */
+  --web-max:         1200px;                     /* container */
+  --web-gutter:      50px;                       /* 20px under 600px */
+  --web-measure:     62ch;                       /* max line length for prose */
+}
+
+/* ---------- Reset, matching the reference site's approach ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; font-weight: 400; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--web-body);
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Headlines sit at 500. A sans at 400 goes weightless at display sizes,
+   where the old serif carried itself on stroke contrast. */
+h1, h2, h3 {
+  font-family: var(--font-headline); line-height: 1.15; font-weight: 500;
+  letter-spacing: -0.015em;
+}
+h1 { font-size: var(--web-display); }
+h2 { font-size: var(--web-h2); }
+h3 { font-size: var(--web-h3); }
+
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: var(--link-color); }
+
+/* ---------- Dark zone: the original navy brand palette, scoped.
+     Used for nav, hero, pricing, footer, the audio player and the CSS
+     "screen" mocks — the moments that should feel like the real product
+     rather than the calm marketing page around them. --------------------- */
+.dark-zone {
+  --bg-base:        #0D1B2A;
+  --bg-surface:     #152232;
+  --bg-raised:      #1A2D40;
+  --bg-overlay:     #1E3F5A;
+  --text-primary:   #F0EDE8;
+  --text-secondary: #A8CCE3;
+  --text-muted:     #6B8DA8;
+  --border:         rgba(91, 141, 181, 0.15);
+  --border-strong:  rgba(91, 141, 181, 0.30);
+  --border-mauve:   rgba(158, 138, 196, 0.30);
+  --label-color:    #A8CCE3;
+  --link-color:     #7BADC9;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+.container { width: 100%; max-width: var(--web-max); margin-inline: auto; padding-inline: var(--web-gutter); }
+@media (max-width: 600px) { .container { padding-inline: 20px; } }
+
+/* ---------- Label: the one place uppercase is allowed ---------- */
+.label {
+  font-size: var(--web-label);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--label-color);
+  line-height: 1;
+}
+
+/* ---------- Buttons: always pills, flat fill, no shadow, min 44px tap ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 12px 28px;
+  font-family: var(--font-body); font-size: 15px; font-weight: 500;
+  border: none; border-radius: var(--radius-pill);
+  text-decoration: none; cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-primary { background: var(--blue-deep); color: #FFFFFF; }
+.btn-primary:hover { background: var(--blue-primary); }
+.btn-dark    { background: var(--bg-raised); color: var(--text-primary); border: 1px solid var(--border-strong); }
+.btn-ghost   { background: transparent; color: var(--link-color); border: 1px solid var(--border-strong); }
+.btn-ghost:hover { border-color: var(--link-color); }
+.btn-text    { background: transparent; color: var(--mauve-primary); padding-inline: 0; }
+.btn-accent  { background: var(--mauve-primary); color: #FFFFFF; }
+
+.btn:focus-visible { outline: 2px solid var(--link-color); outline-offset: 3px; }
+
+/* ---------- Card base — every card inherits this ---------- */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-base);
+}
+
+/* ---------- The breathing gradient.
+     Reference site: 15s ease infinite, -45deg, background-size 400% 400%.
+     Same mechanic, brand palette, used ONCE on the page (footer or hero glow).
+     ---------- */
+.breathe {
+  background: linear-gradient(-45deg,
+    var(--bg-base), var(--blue-primary), var(--mauve-primary), var(--bg-base));
+  background-size: 400% 400%;
+  animation: breathe 15s ease infinite;
+}
+@keyframes breathe {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Reduced motion is not optional for this audience ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===========================================================================
+   RULES THAT ARE NOT SUGGESTIONS
+   - Never #000000 and never #FFFFFF as page colours (button label text excepted).
+   - No shadows. No blur. No gradients except .breathe, used once.
+   - Sentence case everywhere. Never Title Case. Never ALL CAPS except .label.
+   - Weights 400 and 500 only. Never 600 or 700.
+   - Numbers (prices, counts, timers) are always Figtree, at 500.
+   - Body copy is always Nunito Sans. Never Figtree for body text.
+   - Buttons fill with --blue-deep, never --blue-primary (contrast).
+   - Section-transition curves take their colour from a --fixed-* token,
+     never from --bg-*, or a curve in a dark zone paints the wrong side.
+   - Letter-spacing on .label only. Everything else default.
+   - All spacing is a multiple of 4 or 8.
+   - Never round the corners of an element with a border on only one side.
+   - Calm-cream is the default zone everywhere. `.dark-zone` is reserved for
+     nav, hero, pricing, footer, the player and the in-app screen mocks —
+     don't sprinkle it elsewhere or the rhythm (calm → decisive → calm) breaks.
+   =========================================================================== */
