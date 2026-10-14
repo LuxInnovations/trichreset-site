@@ -406,12 +406,12 @@ def foot():
 # One image per guide for the 50/50 header and the hub rows.
 # 'art' = square trich image (assets/img/learn, made by tools/learn_art.py), 'phone' = real app screen.
 IMAGES = {
-    'what-is-trichotillomania': ('assets/img/learn/what-is', 'Long healthy hair falling down a woman’s back in soft evening light', 'art'),
-    'trichotillomania-treatment': ('assets/img/learn/treatment', 'Hands writing in a notebook beside a cup of tea, tracking urges as part of treatment', 'art'),
+    'what-is-trichotillomania': ('assets/img/learn/what-is-v2', 'Late at night in bed, scrolling a phone, one of the most common times hair pulling starts', 'art'),
+    'trichotillomania-treatment': ('assets/img/learn/treatment-v2', 'An urge log notebook with tally marks, a pen, a worry stone and a cup of tea', 'art'),
     'trichotillomania-apps': ('assets/img/app/screen-4', 'Trich Reset app screen: the Listen tab with urge resets, sleep and grounding tracks', 'phone'),
-    'how-to-stop-pulling-hair': ('assets/img/learn/how-to-stop', 'Relaxed hands holding a smooth stone, a simple competing response for hair pulling', 'art'),
+    'how-to-stop-pulling-hair': ('assets/img/learn/how-to-stop-v2', 'A bathroom mirror covered with a towel, with a scrunchie and fidget spinner on the sink', 'art'),
 }
-HUB_IMAGE = ('assets/img/learn/hub', 'A woman with long dark hair sitting calmly by a window at dusk', 'art')
+HUB_IMAGE = ('assets/img/learn/hub-v2', 'A trichotillomania toolkit: fidget ring, stress ball, beanie, cotton gloves, scrunchie, worry stone, hairbrush and phone', 'art')
 
 def figure(img, eager=False):
     src, alt, kind = img
