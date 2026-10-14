@@ -26,6 +26,7 @@ ART = {
     "hub-v2": "Top-down flat lay on a soft lavender knit blanket: a trich toolkit neatly arranged, a textured fidget ring, a squishy stress ball, a soft beanie, thin cotton gloves, a scrunchie, a smooth worry stone, a hairbrush and a phone with a dark calm screen. Soft evening light, tidy, gentle.",
     "what-is-v2": "Late at night in bed in a dark bedroom, seen from behind and above the pillow, a woman lying on her side with long hair spread loose on the pillow, her phone glowing softly in one hand, her other hand resting flat on the duvet away from her hair. Quiet, relatable, the moment pulling usually starts. No face visible.",
     "treatment-v2": "Close-up of an open notebook used as an urge log: the page shows only a ruled grid and rows of small simple tally marks in pencil, no words or letters at all, a pen resting on it, a smooth worry stone beside the notebook, warm cup of tea at the edge, shallow depth of field.",
+    "adhd": "A cosy study desk at night lit by a small warm lamp: an open laptop with a dark screen, an open textbook, a few blank sticky notes, a half-finished cup of tea, and one hand resting on the desk turning a textured fidget cube. A soft knitted beanie sits on the chair back. Calm, relatable, a busy mind at rest. No face visible.",
     "how-to-stop-v2": "A small bathroom vanity mirror with a soft lavender towel draped over it so the glass is covered, a satin scrunchie and a simple fidget spinner resting on the sink below, calm soft evening light. No person.",
 }
 

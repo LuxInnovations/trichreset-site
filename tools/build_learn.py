@@ -24,10 +24,6 @@ S = {
                'https://onlinelibrary.wiley.com/doi/10.1002/da.23028'),
  'mcguire2014':('McGuire JF, Ung D, Selles RR, et al. Treating trichotillomania: a meta-analysis of treatment effects and moderators for behavior therapy and serotonin reuptake inhibitors. <em>Journal of Psychiatric Research</em>. 2014;58:76-83.',
                'https://pmc.ncbi.nlm.nih.gov/articles/PMC4163503/'),
- 'grant2009': ('Grant JE, Odlaug BL, Kim SW. N-acetylcysteine, a glutamate modulator, in the treatment of trichotillomania: a double-blind, placebo-controlled study. <em>Archives of General Psychiatry</em>. 2009;66(7):756-763.',
-               'https://jamanetwork.com/journals/jamapsychiatry/fullarticle/483113'),
- 'bloch2013': ('Bloch MH, Panza KE, Grant JE, Pittenger C, Leckman JF. N-acetylcysteine in the treatment of pediatric trichotillomania: a randomized, double-blind, placebo-controlled add-on trial. <em>Journal of the American Academy of Child and Adolescent Psychiatry</em>. 2013;52(3):231-240.',
-               'https://pmc.ncbi.nlm.nih.gov/articles/PMC3745012/'),
  'woods2006': ('Woods DW, Wetterneck CT, Flessner CA. A controlled evaluation of acceptance and commitment therapy plus habit reversal for trichotillomania. <em>Behaviour Research and Therapy</em>. 2006;44(5):639-656.',
                'https://doi.org/10.1016/j.brat.2005.05.006'),
  'azrin1973': ('Azrin NH, Nunn RG. Habit-reversal: a method of eliminating nervous habits and tics. <em>Behaviour Research and Therapy</em>. 1973;11(4):619-628.',
@@ -40,11 +36,28 @@ S = {
                'https://www.psychiatry.org/psychiatrists/practice/dsm'),
  'icd11':     ('World Health Organization. ICD-11 for Mortality and Morbidity Statistics. 6B25.0 Trichotillomania.',
                'https://icd.who.int/browse/2024-01/mms/en'),
+ 'chesivoir2022': ('Chesivoir EK, Valle S, Grant JE. Comorbid trichotillomania and attention-deficit hyperactivity disorder in adults. <em>Comprehensive Psychiatry</em>. 2022;116:152317.',
+               'https://doi.org/10.1016/j.comppsych.2022.152317'),
+ 'farhat2025': ('Farhat LC, Isomura K, Fernández de la Cruz L, et al. Sociodemographic and clinical characteristics of 1,234 individuals diagnosed with trichotillomania in the Swedish National Patient Register. <em>Scientific Reports</em>. 2025;15:10396.',
+               'https://www.nature.com/articles/s41598-025-95416-w'),
+ 'simon2009': ('Simon V, Czobor P, Bálint S, Mészáros A, Bitter I. Prevalence and correlates of adult attention-deficit hyperactivity disorder: meta-analysis. <em>British Journal of Psychiatry</em>. 2009;194(3):204-211.',
+               'https://doi.org/10.1192/bjp.bp.107.048827'),
  'skinaware': ('SkinAware. Best apps to stop hair pulling (2026 comparison). Updated 20 August 2026. Used for third-party app prices.',
                'https://www.skinawareapp.com/blog/hair-pulling-app'),
 }
 
 ORDER = []  # the current page's source order, set in render()
+
+FREE = '<em>Boredom and the Body</em> is a full ten-minute Trich Reset meditation, free on our homepage. No signup, no email.'
+
+def cta(slug, label, h, body):
+    return f'''<div class="cta-card dark-zone">
+ <p class="label">{label}</p>
+ <h2>{h}</h2>
+ <p>{body}</p>
+ <p class="cta-row"><a class="btn btn-accent" href="/#listen">Play it free</a> <a class="btn btn-ghost" href="{PLAY.format(slug=slug)}">Get it on Google Play</a></p>
+</div>
+'''
 
 def cite(*keys):
     return ''.join(f'<sup><a href="#src-{k}">[{ORDER.index(k)+1}]</a></sup>' for k in keys)
@@ -58,7 +71,7 @@ def page(slug, title, h1, label, desc, summary, body, faqs, sources):
 
 # 1 ------------------------------------------------------------- what is it
 page('what-is-trichotillomania',
- 'What Is Trichotillomania? Hair Pulling Disorder Explained, With Sources',
+ 'What Is Trichotillomania? Hair Pulling Disorder Explained',
  'What is trichotillomania?',
  'Learn · The basics',
  'Trichotillomania is a recurring urge to pull out your own hair. Around 1.7% of adults have it. Symptoms, causes, focused vs automatic pulling and diagnosis, with research sources.',
@@ -126,13 +139,16 @@ page('what-is-trichotillomania',
 </table>
 </div>
 <p>Most people pull for reasons in more than one area. Knowing your own mix is the first step to choosing tools that fit. The
- <a href="/how-to-stop-pulling-hair">practical guide</a> walks through tools for each.</p>
+ <a href="/how-to-stop-pulling-hair">practical guide</a> walks through tools for each, and the <a href="/">Trich Reset app</a> has a
+ lesson on every SCAMP area plus a short questionnaire that builds your own profile.</p>
 
 <h2>Is trichotillomania dangerous?</h2>
 <p>It is usually not physically dangerous, but it can cause patchy hair loss, skin irritation and a lot of shame. One rare but serious risk:
  people who swallow pulled hair can develop a hairball in the stomach or intestines (a trichobezoar), which may need surgery.{cite('tlc')}
  If you swallow hair and have stomach pain, nausea or vomiting, see a doctor.</p>
-''',
+
+{cta('what-is-trichotillomania', 'Understanding is step one', 'Then you need something for the urge.',
+     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
  [('How common is trichotillomania?', 'A 2020 survey of more than 10,000 US adults found 1.7% currently had trichotillomania, with similar rates in men and women (Grant, Dougherty and Chamberlain, Psychiatry Research, 2020).'),
   ('Is trichotillomania a form of OCD?', 'It is grouped with obsessive-compulsive and related disorders in the DSM-5, but it is its own condition. Pulling is often driven by sensation, tension or emotion rather than obsessive thoughts, and in ICD-11 it sits among the body-focused repetitive behaviour disorders.'),
   ('Can trichotillomania go away on its own?', 'For some people it eases with time, but for many it continues into adulthood. Behaviour therapy with habit reversal training has the strongest evidence for reducing pulling.'),
@@ -141,14 +157,14 @@ page('what-is-trichotillomania',
 
 # 2 ------------------------------------------------------------- treatments
 page('trichotillomania-treatment',
- 'Trichotillomania Treatment Compared: HRT, ComB, ACT, NAC and Medication',
+ 'Trichotillomania Treatment: What Works, Compared',
  'Trichotillomania treatments compared',
  'Learn · Treatment',
- 'What actually works for hair pulling? A side-by-side table of trichotillomania treatments (habit reversal training, ComB, ACT, NAC, clomipramine, SSRIs) with the research behind each.',
+ 'What actually works for hair pulling? Habit reversal training, the ComB model and acceptance-based therapy compared, with the research behind each and where an app fits.',
  lambda: f'''The treatment with the strongest evidence for trichotillomania is <strong>behaviour therapy built
  around habit reversal training (HRT)</strong>. A 2020 meta-analysis of 24 randomised trials (857 people) found a
- large benefit for HRT-based therapy.{cite('farhat2020')} Among medicines, clomipramine, N-acetylcysteine (NAC) and
- olanzapine showed benefits in trials, while SSRIs did not show a clear benefit.{cite('farhat2020')}''',
+ large benefit for HRT-based therapy.{cite('farhat2020')} The skills it teaches (noticing the urge, keeping your hands busy,
+ changing your setup and riding the urge out) are things you can start practising today.''',
  lambda: f'''
 <h2>Side by side</h2>
 <div class="table-wrap">
@@ -162,11 +178,8 @@ page('trichotillomania-treatment',
       <td>Builds on HRT; widely used by BFRB specialists. Fewer head-to-head trials than HRT</td><td>BFRB specialist therapists</td></tr>
   <tr><th scope="row">HRT plus acceptance (ACT)</th><td>Adds acceptance and commitment therapy so urges can be noticed without being obeyed</td>
       <td>Better than waitlist in a controlled trial{cite('woods2006')}. Adding emotion-focused components improved behaviour therapy results{cite('mcguire2014')}</td><td>Psychologists trained in ACT</td></tr>
-  <tr><th scope="row">N-acetylcysteine (NAC)</th><td>An amino acid supplement that affects glutamate</td>
-      <td>In adults, 56% were much or very much improved vs 16% on placebo over 12 weeks{cite('grant2009')}. In children it did no better than placebo{cite('bloch2013')}</td><td>Over the counter. Talk to a doctor first</td></tr>
-  <tr><th scope="row">Clomipramine</th><td>An older antidepressant (tricyclic)</td><td>Benefit over placebo (SMD −0.71){cite('farhat2020')}; side effects limit use</td><td>Prescription</td></tr>
-  <tr><th scope="row">Olanzapine</th><td>An antipsychotic</td><td>Benefit over placebo (SMD −0.94){cite('farhat2020')}; significant side effects</td><td>Prescription, specialist use</td></tr>
-  <tr><th scope="row">SSRIs (e.g. fluoxetine)</th><td>Common antidepressants</td><td>No clear benefit for pulling itself{cite('farhat2020')}; may help co-occurring anxiety or depression</td><td>Prescription</td></tr>
+  <tr><th scope="row">Medicines and supplements</th><td>Several have been studied in trials, with mixed results{cite('farhat2020')}</td>
+      <td>None is approved specifically for trichotillomania. Not something to start on your own</td><td>Talk to your GP or a psychiatrist</td></tr>
  </tbody>
 </table>
 </div>
@@ -185,8 +198,9 @@ page('trichotillomania-treatment',
  </tbody>
 </table>
 </div>
-<p>An app is not a replacement for a therapist. Where it can help is the moment a therapist can't be there, when the urge arrives at
- night or on the couch. See the <a href="/trichotillomania-apps">app comparison</a>.</p>
+<p>An app is not a replacement for a therapist. Where it earns its place is the moment a therapist can't be there: the urge at 11pm,
+ on the couch, in the car. That is the gap <a href="/">Trich Reset</a> was built for, and its Stillness Protocol draws on habit reversal
+ training, the ComB model and acceptance-based work. See how it compares in the <a href="/trichotillomania-apps">app comparison</a>.</p>
 
 <h2>What habit reversal training involves</h2>
 <ol>
@@ -196,24 +210,25 @@ page('trichotillomania-treatment',
  <li><strong>Social support.</strong> Someone who gently notices and encourages you.</li>
 </ol>
 <p>The <a href="/how-to-stop-pulling-hair">practical guide</a> turns these into steps you can start today.</p>
-''',
+
+{cta('trichotillomania-treatment', 'Between sessions, or before you can get one', 'Something for the urge, tonight.',
+     'Trich Reset puts the research into guided audio made only for hair pulling. ' + FREE)}''',
  [('What is the most effective treatment for trichotillomania?', 'Behaviour therapy built around habit reversal training (HRT). A 2020 meta-analysis of 24 randomised trials found a large benefit for HRT-based therapy compared with control conditions (Farhat et al., Depression and Anxiety, 2020).'),
-  ('Does NAC work for trichotillomania?', 'In a 12-week trial in adults, 56% taking N-acetylcysteine were much or very much improved, compared with 16% on placebo (Grant, Odlaug and Kim, 2009). A later trial in children found no benefit over placebo. Talk to a doctor before starting any supplement.'),
-  ('Do antidepressants help hair pulling?', 'SSRIs have not shown a clear benefit for pulling itself in randomised trials, although they may help co-occurring anxiety or depression. Clomipramine, an older antidepressant, has shown some benefit.'),
+  ('Is there medication for trichotillomania?', 'Some medicines and supplements have been studied, with mixed results, and none is approved specifically for trichotillomania. A GP or psychiatrist can talk through whether anything is right for you. Behaviour therapy has the strongest evidence.'),
+  ('Can an app help with trichotillomania?', 'An app is not a replacement for therapy, but it can help you practise the same skills between sessions or while you wait for one: noticing urges, riding them out and tracking your triggers. Trich Reset adds guided audio for the moment the urge arrives.'),
   ('How do I find a trichotillomania therapist?', 'The TLC Foundation for Body-Focused Repetitive Behaviors keeps a directory of clinicians trained in BFRBs at bfrb.org. Ask any therapist whether they use habit reversal training or the ComB model.')],
- ['farhat2020','mcguire2014','azrin1973','mansueto1997','woods2006','grant2009','bloch2013'])
+ ['farhat2020','mcguire2014','azrin1973','mansueto1997','woods2006'])
 
 # 3 ------------------------------------------------------------------ apps
 page('trichotillomania-apps',
- 'Best Apps for Trichotillomania (2026): Trich Reset, TrichStop, SkinAware, Keen2 Compared',
+ 'Best Trichotillomania Apps (2026), Compared',
  'Apps for trichotillomania, compared',
  'Learn · Apps',
- 'An honest side-by-side of hair pulling apps in 2026: price, platforms, therapist access, guided audio and tracking for Trich Reset, TrichStop, SkinAware and HabitAware Keen2.',
- lambda: f'''There are four main types of trichotillomania app: <strong>therapist platforms</strong> (TrichStop),
- <strong>wearables</strong> that buzz when your hand moves (HabitAware Keen2), <strong>trackers with a habit
- reversal course</strong> (SkinAware), and <strong>audio-first apps for the urge itself</strong> (Trich Reset). They
- suit different people. This page is written by the team behind Trich Reset, so we have stuck to facts you can check
- and linked our source for other apps' prices.{cite('skinaware')}''',
+ 'Most trich apps help you count your pulling. One is built to get you through the urge. A sourced side-by-side of Trich Reset, TrichStop, SkinAware and HabitAware Keen2.',
+ lambda: f'''Most trichotillomania apps help you <strong>count</strong> your pulling. Trich Reset is built to get you
+ <strong>through the urge itself</strong>: 21 guided meditations, hypnosis and sleep tracks made only for hair pulling, plus the
+ SCAMP trigger map that BFRB specialists use. Here's how it stacks up against TrichStop, SkinAware and HabitAware Keen2. We make
+ Trich Reset, so every claim about the other apps links to a source you can check.{cite('skinaware')}''',
  lambda: f'''
 <h2>Side by side</h2>
 <div class="table-wrap">
@@ -221,19 +236,22 @@ page('trichotillomania-apps',
  <caption>Hair pulling apps compared (October 2026)</caption>
  <thead><tr><th scope="col"></th><th scope="col">Trich Reset</th><th scope="col">TrichStop</th><th scope="col">SkinAware</th><th scope="col">HabitAware Keen2</th></tr></thead>
  <tbody>
-  <tr><th scope="row">Main idea</th><td>Guided audio for the moment of the urge, plus tracking and lessons</td><td>Online program with a specialist therapist</td><td>Logging plus a habit reversal course</td><td>Bracelet that vibrates when your hand moves to your hair</td></tr>
-  <tr><th scope="row">Platforms</th><td>Android (iOS coming)</td><td>iOS, Android</td><td>iOS, Android, Apple Watch, web</td><td>Bracelet + iOS/Android app</td></tr>
-  <tr><th scope="row">Price</th><td>A$199.99/year (early bird), A$249.99/year or A$26.99/month</td><td>US$60–90 per week{cite('skinaware')}</td><td>Free core; premium US$5.99/month or US$34.99/year{cite('skinaware')}</td><td>US$169 bracelet; HRT content extra{cite('skinaware')}</td></tr>
+  <tr><th scope="row">Built for</th><td><strong>Getting through the urge.</strong> Guided audio for the moment your hand starts moving, plus a trigger map, tracking and lessons</td><td>A weekly online program with a therapist</td><td>Logging, with a habit reversal course written in general BFRB language rather than for pulling{cite('skinaware')}</td><td>A bracelet that vibrates when your hand moves to your hair</td></tr>
+  <tr><th scope="row">Made only for hair pulling</th><td><strong>Yes.</strong> Every track and lesson</td><td>Yes</td><td>No. Also covers skin picking and other BFRBs{cite('skinaware')}</td><td>No. Also used for skin picking and nail biting</td></tr>
+  <tr><th scope="row">Guided audio</th><td><strong>21 tracks, over six hours.</strong> Urge resets from 4 minutes, protocols, hypnosis, affirmations, sleep up to 60 minutes. New tracks monthly</td><td>Mindfulness exercises{cite('skinaware')}</td><td>Breathing and urge-surfing tools{cite('skinaware')}</td><td>Not a focus</td></tr>
+  <tr><th scope="row">Hypnosis and sleep tracks</th><td><strong>Yes</strong></td><td>Not listed{cite('skinaware')}</td><td>Not listed{cite('skinaware')}</td><td>Not listed{cite('skinaware')}</td></tr>
+  <tr><th scope="row">Find your triggers</th><td><strong>SCAMP profile questionnaire</strong> (ComB model) across 5 trigger areas</td><td>Worked through with your therapist</td><td>From your logs</td><td>Detects the hand movement</td></tr>
+  <tr><th scope="row">Education</th><td>3 modules, 17 lessons written for hair pulling</td><td>Structured program</td><td>3-module HRT course</td><td>Course sold separately{cite('skinaware')}</td></tr>
+  <tr><th scope="row">Tracking</th><td>Urge and pull logs, check-ins, recovery-aware streaks, private regrowth photos</td><td>Self-monitoring</td><td>Detailed logging, widgets</td><td>Automatic + manual</td></tr>
+  <tr><th scope="row">Price</th><td><strong>A$199.99/year</strong> (early bird), A$249.99/year or A$26.99/month</td><td>US$60–90 per week{cite('skinaware')}, which is US$3,120 or more over a year</td><td>Free core; premium US$5.99/month or US$34.99/year{cite('skinaware')}</td><td>US$169 bracelet; HRT content extra{cite('skinaware')}</td></tr>
   <tr><th scope="row">Free option</th><td>One full meditation free on <a href="/#listen">trichreset.com</a></td><td>No free tier{cite('skinaware')}</td><td>Yes, core logging</td><td>App logging free</td></tr>
   <tr><th scope="row">Real therapist</th><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
-  <tr><th scope="row">Guided audio / meditation</th><td>Yes. A growing library built for pulling urges, with new tracks monthly</td><td>Mindfulness exercises{cite('skinaware')}</td><td>Breathing and urge-surfing tools{cite('skinaware')}</td><td>Not a focus</td></tr>
   <tr><th scope="row">Detects pulling automatically</th><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
-  <tr><th scope="row">Tracking</th><td>Urge and pull logs, check-ins, recovery-aware streaks, private regrowth photos</td><td>Self-monitoring</td><td>Detailed logging, widgets</td><td>Automatic + manual</td></tr>
-  <tr><th scope="row">Education</th><td>3 modules, 17 lessons, SCAMP profile questionnaire</td><td>Structured program</td><td>3-module HRT course</td><td>Course sold separately</td></tr>
+  <tr><th scope="row">Platforms</th><td>Android (iOS coming)</td><td>iOS, Android</td><td>iOS, Android, Apple Watch, web</td><td>Bracelet + iOS/Android app</td></tr>
  </tbody>
 </table>
 </div>
-<p class="table-note">Third-party prices are from SkinAware's published comparison (updated 20 August 2026){cite('skinaware')} and may have changed. Check each store before you buy.</p>
+<p class="table-note">Third-party prices and features are from SkinAware's published comparison (updated 20 August 2026){cite('skinaware')} and may have changed. Check each store before you buy.</p>
 
 <h2>Which one fits you</h2>
 <div class="table-wrap">
@@ -241,39 +259,37 @@ page('trichotillomania-apps',
  <caption>Match the app to the problem</caption>
  <thead><tr><th scope="col">If this sounds like you</th><th scope="col">Look at</th></tr></thead>
  <tbody>
-  <tr><td>You want a real specialist and can afford weekly therapy</td><td>TrichStop, or a local BFRB therapist</td></tr>
-  <tr><td>You mostly pull without noticing (automatic pulling)</td><td>A wearable such as Keen2</td></tr>
-  <tr><td>You want detailed logs on a small budget, or you're on iPhone</td><td>SkinAware</td></tr>
-  <tr><td>You know when the urge hits, and need something to do in that moment</td><td>Trich Reset</td></tr>
+  <tr><td>You know when the urge hits, and need something to do in that moment</td><td><strong>Trich Reset.</strong> This is exactly what it's built for</td></tr>
+  <tr><td>You pull in bed, or in the hour before sleep</td><td><strong>Trich Reset.</strong> Four sleep tracks, 20 to 60 minutes</td></tr>
+  <tr><td>You've never been sure why you pull</td><td><strong>Trich Reset.</strong> The SCAMP lessons and questionnaire map your triggers</td></tr>
+  <tr><td>You mostly pull without noticing (automatic pulling)</td><td><strong>Trich Reset's</strong> Automatic Pulling Protocol, plus a wearable such as Keen2 if you want a buzz on your wrist</td></tr>
+  <tr><td>You want weekly sessions with a specialist and can pay US$60–90 a week</td><td>TrichStop or a local BFRB therapist, with Trich Reset for the moments in between</td></tr>
+  <tr><td>You're on iPhone</td><td>SkinAware for now. Trich Reset for iOS is coming</td></tr>
  </tbody>
 </table>
 </div>
 
 <h2>What makes a good trich app</h2>
 <ul>
- <li><strong>Built on habit reversal training.</strong> It is the best-evidenced approach. See <a href="/trichotillomania-treatment">treatments compared</a>.</li>
- <li><strong>Fast to use.</strong> If logging takes a minute, you will stop by week two.</li>
- <li><strong>Doesn't punish a bad day.</strong> Shame keeps the cycle going. Streaks that reset to zero can make things worse.</li>
- <li><strong>Private.</strong> You should be able to delete everything yourself.</li>
+ <li><strong>Built on the research.</strong> Habit reversal training has the strongest evidence, and the ComB model builds on it. See <a href="/trichotillomania-treatment">treatments compared</a>. <em>Trich Reset's Stillness Protocol draws on both, and its lessons are built on SCAMP.</em></li>
+ <li><strong>Help in the moment, not only afterwards.</strong> A log tells you what happened. The urge needs something now. <em>Trich Reset's resets start at four minutes.</em></li>
+ <li><strong>Fast to use.</strong> If logging takes a minute, you will stop by week two. <em>Trich Reset logs a pull in a few taps.</em></li>
+ <li><strong>Doesn't punish a bad day.</strong> Shame keeps the cycle going. Streaks that reset to zero can make things worse. <em>Trich Reset's streaks count the days you show up.</em></li>
+ <li><strong>Private.</strong> You should be able to delete everything yourself. <em>In Trich Reset it's one button.</em></li>
  <li><strong>Honest about what it is.</strong> No app is a medical treatment. Be wary of "cure" claims.</li>
 </ul>
 
-<div class="cta-card dark-zone">
- <p class="label">Try before you pay</p>
- <h2>Hear the Trich Reset urge track, free.</h2>
- <p><em>Right now</em> is a four-minute guided reset for the moment your hand starts moving. No signup.</p>
- <p class="cta-row"><a class="btn btn-accent" href="/#listen">Play it free</a> <a class="btn btn-ghost" href="{PLAY.format(slug='trichotillomania-apps')}">Get it on Google Play</a></p>
-</div>
+{cta('trichotillomania-apps', 'Try before you pay', 'Hear Trich Reset for yourself, free.', FREE)}
 ''',
- [('What is the best app for trichotillomania?', 'It depends on how you pull. TrichStop connects you with a specialist therapist (about US$60–90 a week). HabitAware Keen2 is a bracelet that detects automatic pulling. SkinAware offers detailed logging and a habit reversal course with a free tier. Trich Reset (Android) focuses on guided audio for the moment an urge arrives, plus tracking and lessons.'),
-  ('Is there a free app for hair pulling?', 'SkinAware has a free core logging tier, and the HabitAware app is free for manual logging. Trich Reset offers one full meditation free on its website. Fully featured apps generally need a subscription.'),
+ [('What is the best app for trichotillomania?', 'It depends on what you need. For help in the moment the urge hits, Trich Reset: it is the only app in this comparison with a full guided audio library made for hair pulling, including hypnosis and sleep tracks. TrichStop connects you with a specialist therapist (about US$60–90 a week). HabitAware Keen2 is a bracelet that detects automatic pulling. SkinAware offers detailed logging and a habit reversal course with a free tier.'),
+  ('Is there a free app for hair pulling?', 'SkinAware has a free core logging tier, and the HabitAware app is free for manual logging. Trich Reset lets you hear a full ten-minute meditation free on its website, no signup. Fully featured apps generally need a subscription.'),
   ('Do trichotillomania apps work?', 'Most apps use principles from habit reversal training, which has strong evidence as a therapy. Few apps have been tested in their own clinical trials, so treat any app as support rather than treatment.'),
   ('Is Trich Reset on iPhone?', 'Not yet. Trich Reset is on Android through Google Play, with iOS planned.')],
  ['skinaware'])
 
 # 4 ---------------------------------------------------------------- how-to
 page('how-to-stop-pulling-hair',
- 'How to Stop Pulling Your Hair: A Practical, Research-Based Guide',
+ 'How to Stop Pulling Your Hair: A Research-Based Guide',
  'How to stop pulling your hair',
  'Learn · Practical guide',
  'Practical, research-based steps to stop pulling your hair: spot your triggers, use a competing response, change your setup and ride out the urge. Includes a trigger-to-tool table.',
@@ -315,30 +331,110 @@ page('how-to-stop-pulling-hair',
  <li>Breathe slowly and watch the number. Urges peak, then fall.</li>
  <li>Keep your hands busy with your competing response while it passes.</li>
 </ol>
-<p>Guided audio can carry you through this when you can't think straight. That is what Trich Reset's
- <a href="/#listen">free urge track</a> is for.</p>
+<p>When you can't think straight, a voice in your ear can carry you through it. That is exactly what
+ <a href="/">Trich Reset</a> is built for: guided resets from four minutes, made only for hair pulling.
+ <a href="/#listen">Hear a full one free</a>.</p>
 
 <h2>5. Expect slips, and count the hard days</h2>
 <p>Recovery is rarely a straight line. Shame after a slip often leads to more pulling. Track the days you showed up, not only the clean ones,
- so you can see the trend over weeks rather than judging yourself on one night.</p>
+ so you can see the trend over weeks rather than judging yourself on one night. Trich Reset's streaks work exactly this way: a hard day
+ still counts.</p>
 
 <h2>When to get professional help</h2>
 <p>If pulling is causing noticeable hair loss, affecting your work, school or relationships, or you feel low or hopeless, see a doctor or
  psychologist. A therapist trained in habit reversal training or the ComB model gives you the best-evidenced help. The TLC Foundation
  lists BFRB clinicians at <a href="https://www.bfrb.org">bfrb.org</a>. If you are in crisis in Australia, call Lifeline on 13 11 14.</p>
 
-<div class="cta-card dark-zone">
- <p class="label">For the ten seconds your hand starts moving</p>
- <h2>Press play when the urge hits.</h2>
- <p>Hear Trich Reset's four-minute urge reset free on our homepage. No signup, no email.</p>
- <p class="cta-row"><a class="btn btn-accent" href="/#listen">Play it free</a> <a class="btn btn-ghost" href="{PLAY.format(slug='how-to-stop-pulling-hair')}">Get it on Google Play</a></p>
-</div>
-''',
+{cta('how-to-stop-pulling-hair', 'For the ten seconds your hand starts moving', 'Press play when the urge hits.', FREE)}''',
  [('How do I stop pulling my hair right now?', 'Give your hands a competing job for about a minute: clench your fists, hold an object or sit on your hands. Then name the urge, breathe slowly and wait for it to peak and pass.'),
   ('What can I do instead of pulling my hair?', 'Use a competing response that keeps your hands busy (a fidget, a smooth stone, a hairbrush), wear gloves or a hat during high-risk activities, and change the places where you pull, such as covering or dimming the mirror.'),
   ("Why can't I stop pulling my hair?", 'Trichotillomania is a body-focused repetitive behaviour, not a lack of willpower. Pulling is triggered and reinforced by sensations, thoughts, emotions, habits and places. Tools that target your specific triggers work better than trying to just stop.'),
   ('Does wearing gloves help with hair pulling?', 'Gloves, finger tape or a hat are a form of stimulus control used in habit reversal training. They are most useful during predictable high-risk times, like reading, watching TV or lying in bed.')],
  ['farhat2020','woods2006','mansueto1997','azrin1973'])
+
+# 5 ------------------------------------------------------------------ ADHD
+page('trichotillomania-and-adhd',
+ 'Trichotillomania and ADHD: Why They Overlap and What Helps',
+ 'Trichotillomania and ADHD',
+ 'Learn · ADHD',
+ 'Up to 3 in 10 adults with trichotillomania also report ADHD. Why hair pulling and ADHD overlap, and practical tools that suit an ADHD brain, with research sources.',
+ lambda: f'''ADHD is common in people with trichotillomania. In a study of 308 adults with trich, <strong>15.3%</strong>
+ met the clinical threshold for ADHD{cite('chesivoir2022')}, and in a US survey <strong>29%</strong> of people with trich
+ reported ADHD{cite('grant2020','farhat2025')}, compared with about <strong>2.5%</strong> of adults overall.{cite('simon2009')}
+ They are separate conditions, but impulsivity, boredom and restless hands connect them, so tools that keep your hands busy and
+ your setup simple are a good place to start.''',
+ lambda: f'''
+<h2>How often they occur together</h2>
+<div class="table-wrap">
+<table>
+ <caption>ADHD and trichotillomania: what the research found</caption>
+ <thead><tr><th scope="col">Study</th><th scope="col">Who was studied</th><th scope="col">Finding</th></tr></thead>
+ <tbody>
+  <tr><th scope="row">Chesivoir, Valle and Grant, 2022</th><td>308 adults with a current trichotillomania diagnosis</td><td>15.3% met the clinical threshold for ADHD{cite('chesivoir2022')}</td></tr>
+  <tr><th scope="row">Grant, Dougherty and Chamberlain, 2020</th><td>175 US adults with trichotillomania, from a survey of 10,169</td><td>29% reported ADHD; 79% had at least one other mental health condition{cite('grant2020','farhat2025')}</td></tr>
+  <tr><th scope="row">Farhat and colleagues, 2025</th><td>1,234 people diagnosed with trichotillomania in Sweden</td><td>39% also had a neurodevelopmental diagnosis, the group that includes ADHD{cite('farhat2025')}</td></tr>
+  <tr><th scope="row">Simon and colleagues, 2009</th><td>Adults in general (meta-analysis)</td><td>About 2.5% have ADHD{cite('simon2009')}</td></tr>
+ </tbody>
+</table>
+</div>
+<p class="table-note">The studies used different methods (clinical interviews, self-report surveys and health records), which is why the numbers vary.</p>
+
+<h2>Is hair pulling a symptom of ADHD?</h2>
+<p>No. Trichotillomania is its own condition, classed as a body-focused repetitive behaviour.{cite('apa2013')} Many people
+ have one without the other. But when they show up together, each can make the other harder to manage, so it helps to understand both.</p>
+
+<h2>Why they overlap</h2>
+<ul>
+ <li><strong>Impulsivity.</strong> In the 2022 study, people with both conditions scored higher on every measure of impulsivity:
+  acting on the spot, attention drifting and not planning ahead.{cite('chesivoir2022')} The gap between an urge and your hand
+  moving can feel shorter.</li>
+ <li><strong>Restless, under-stimulated moments.</strong> Automatic pulling tends to happen while sitting still: reading, studying,
+  scrolling, watching TV, lying in bed.{cite('flessner2008')} Those are the same moments an ADHD brain goes looking for stimulation.</li>
+ <li><strong>Hands that want a job.</strong> Pulling gives the hands something to do and the senses something to focus on. The sensory
+  and motor parts of the SCAMP model describe exactly this.{cite('mansueto1997')}</li>
+ <li><strong>Plans that slip.</strong> ADHD makes it harder to remember a strategy in the moment, so tools need to be visible and
+  within reach, not just in your head.</li>
+</ul>
+<p>One encouraging finding: in the 2022 study, people with both conditions did not have more severe pulling, or a lower quality of
+ life, than people with trich alone.{cite('chesivoir2022')}</p>
+
+<h2>Tools that suit an ADHD brain</h2>
+<div class="table-wrap">
+<table>
+ <caption>Common ADHD pulling situations, and what to try</caption>
+ <thead><tr><th scope="col">If you pull when…</th><th scope="col">Try</th></tr></thead>
+ <tbody>
+  <tr><td>Your hands are free while studying, working or on a screen</td><td>A fidget in the hand you pull with, kept on the desk where you can see it. Thin gloves or a beanie during long focus sessions</td></tr>
+  <tr><td>You're bored or under-stimulated</td><td>Short movement breaks, background audio, or a short guided track instead of sitting with nothing to do</td></tr>
+  <tr><td>You forget your plan the moment the urge hits</td><td>Put tools where pulling happens, not in a drawer. A sticky note on the mirror or laptop. One plan, not five</td></tr>
+  <tr><td>You lose track of time scrolling in bed</td><td>Phone charging out of reach, hair tied up, and sleep audio instead of the feed</td></tr>
+  <tr><td>"Just one" turns into twenty minutes</td><td>A competing response the second you notice: make a fist or hold an object for one minute.{cite('azrin1973')} Delay, don't negotiate</td></tr>
+  <tr><td>Tracking feels like homework</td><td>Log in a few taps or not at all. A rough count you keep beats a detailed diary you drop</td></tr>
+ </tbody>
+</table>
+</div>
+<p>These come from habit reversal training, the approach with the strongest evidence for trichotillomania,{cite('farhat2020')}
+ adapted to be short, visible and hands-on. The <a href="/how-to-stop-pulling-hair">practical guide</a> goes deeper on each step.</p>
+
+<h2>Where Trich Reset fits</h2>
+<p>Most self-help asks you to remember a technique when your brain is at its busiest. <a href="/">Trich Reset</a> is built the other
+ way round: press play and a voice walks you through it. Resets start at four minutes, the Automatic Pulling Protocol is made for
+ pulling you don't notice, sleep tracks replace the late-night scroll, and logging takes a few taps. The SCAMP questionnaire shows which
+ of your triggers are sensory, emotional or habit-based, so you know where to start.</p>
+
+<h2>When to get professional help</h2>
+<p>If you think you might have ADHD, start with your GP, who can refer you for an assessment. For pulling, a therapist trained in habit
+ reversal training or the ComB model gives you the best-evidenced help, and the TLC Foundation lists BFRB clinicians at
+ <a href="https://www.bfrb.org">bfrb.org</a>. Tell any clinician you see about both, because a plan that works for one should fit the
+ other. If you are in crisis in Australia, call Lifeline on 13 11 14.</p>
+
+{cta('trichotillomania-and-adhd', 'Short, guided, hands-free', "Something for the urge that you don't have to remember.",
+     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
+ [('Is trichotillomania a symptom of ADHD?', 'No. Trichotillomania is a separate condition, a body-focused repetitive behaviour. The two often occur together: in one study of 308 adults with trichotillomania, 15.3% also met the threshold for ADHD.'),
+  ('How common is ADHD in people with trichotillomania?', 'Studies range from about 15% (a 2022 clinical study of 308 adults) to 29% (a 2020 US survey), compared with about 2.5% of adults in general.'),
+  ('Does ADHD make hair pulling worse?', 'People with both conditions tend to be more impulsive, but a 2022 study found their pulling was not more severe, and their quality of life was no lower, than people with trichotillomania alone.'),
+  ('What helps hair pulling if you have ADHD?', 'The same habit reversal skills, made short and visible: a fidget kept where you pull, gloves or a hat during long focus sessions, one simple plan, and guided audio so you do not have to remember the steps yourself.')],
+ ['chesivoir2022','grant2020','farhat2025','simon2009','apa2013','flessner2008','mansueto1997','azrin1973','farhat2020'])
 
 # ------------------------------------------------------------- templates
 NAV = '''<header class="nav dark-zone" id="nav">
@@ -409,8 +505,10 @@ IMAGES = {
     'what-is-trichotillomania': ('assets/img/learn/what-is-v2', 'Late at night in bed, scrolling a phone, one of the most common times hair pulling starts', 'art'),
     'trichotillomania-treatment': ('assets/img/learn/treatment-v2', 'An urge log notebook with tally marks, a pen, a worry stone and a cup of tea', 'art'),
     'trichotillomania-apps': ('assets/img/app/screen-4', 'Trich Reset app screen: the Listen tab with urge resets, sleep and grounding tracks', 'phone'),
+    'trichotillomania-and-adhd': ('assets/img/learn/adhd', 'A study desk at night: open laptop and textbook, a cup of tea, and a hand turning a fidget cube instead of reaching for hair', 'art'),
     'how-to-stop-pulling-hair': ('assets/img/learn/how-to-stop-v2', 'A bathroom mirror covered with a towel, with a scrunchie and fidget spinner on the sink', 'art'),
 }
+HUB_ORDER = ['what-is-trichotillomania', 'how-to-stop-pulling-hair', 'trichotillomania-apps', 'trichotillomania-and-adhd', 'trichotillomania-treatment']
 HUB_IMAGE = ('assets/img/learn/hub-v2', 'A trichotillomania toolkit: fidget ring, stress ball, beanie, cotton gloves, scrunchie, worry stone, hairbrush and phone', 'art')
 
 def figure(img, eager=False):
@@ -477,11 +575,11 @@ def render_hub():
     url = SITE + '/learn'
     cards = ''.join(f'''<li class="split hub-row"><div class="split-copy"><p class="label">{p['label'].replace('Learn · ', '')}</p>
       <h2><a href="/{p['slug']}">{p['h1']}</a></h2><p>{html.escape(p['desc'])}</p>
-      <p><a class="btn btn-primary" href="/{p['slug']}">Read the guide</a></p></div>
-      {figure(IMAGES[p['slug']])}</li>''' for p in PAGES)
+      <p><a class="btn btn-primary" href="/{p['slug']}">{'See the comparison' if p['slug'] == 'trichotillomania-apps' else 'Read the guide'}</a></p></div>
+      {figure(IMAGES[p['slug']])}</li>''' for p in sorted(PAGES, key=lambda p: HUB_ORDER.index(p['slug'])))
     schema = schema_tags([{'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'Learn about trichotillomania',
         'url': url, 'publisher': PUBLISHER, 'hasPart': [{'@type': 'Article', 'headline': p['h1'], 'url': f"{SITE}/{p['slug']}"} for p in PAGES]}])
-    desc = 'Plain-English, research-sourced guides to trichotillomania: what it is, treatments compared, apps compared, and practical steps to stop pulling.'
+    desc = 'Plain-English, research-sourced guides to trichotillomania: what it is, how to stop pulling, apps compared, ADHD and trich, and treatments compared.'
     out = HEAD.format(title='Learn About Trichotillomania: Research-Sourced Guides | Trich Reset', desc=desc, url=url, schema=schema)
     out += NAV.format(play=PLAY.format(slug='learn'))
     out += f'''
@@ -490,12 +588,15 @@ def render_hub():
   <div class="split-copy">
    <p class="label">Learn</p>
    <h1>Trichotillomania, <span class="hl">explained properly.</span></h1>
-   <p class="lede">Plain-English guides to hair pulling disorder. Every fact links to the research it came from, so you can check it yourself.</p>
+   <p class="lede">Plain-English guides to hair pulling disorder, every fact linked to the research it came from.
+   And when you've finished reading, <a href="/">an app built to help you do something about it</a>.</p>
   </div>
   {figure(HUB_IMAGE, eager=True)}
  </header>
  <div class="container">
   <ul class="hub">{cards}</ul>
+{cta('learn', 'Reading is step one', 'Now hear what the app sounds like.',
+     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling, plus the SCAMP lessons these guides draw on. ' + FREE)}
  </div>
 </main>
 {foot()}
