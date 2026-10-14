@@ -1,0 +1,15 @@
+# Trich Reset
+
+> Trich Reset is an Android app for trichotillomania (hair pulling disorder): guided audio for the moment an urge arrives, urge and pull logging, recovery-aware streaks and lessons. Made by Lux Innovations, Australia.
+
+## Learn (research-sourced guides)
+
+- [What is trichotillomania?](https://trichreset.com/what-is-trichotillomania): Trichotillomania is a recurring urge to pull out your own hair. Around 1.7% of adults have it. Symptoms, causes, focused vs automatic pulling and diagnosis, with research sources.
+- [Trichotillomania treatments compared](https://trichreset.com/trichotillomania-treatment): What actually works for hair pulling? A side-by-side table of trichotillomania treatments (habit reversal training, ComB, ACT, NAC, clomipramine, SSRIs) with the research behind each.
+- [Apps for trichotillomania, compared](https://trichreset.com/trichotillomania-apps): An honest side-by-side of hair pulling apps in 2026: price, platforms, therapist access, guided audio and tracking for Trich Reset, TrichStop, SkinAware and HabitAware Keen2.
+- [How to stop pulling your hair](https://trichreset.com/how-to-stop-pulling-hair): Practical, research-based steps to stop pulling your hair: spot your triggers, use a competing response, change your setup and ride out the urge. Includes a trigger-to-tool table.
+
+## App
+
+- [Home, with a free meditation](https://trichreset.com/)
+- [Google Play](https://play.google.com/store/apps/details?id=trichreset.com)
