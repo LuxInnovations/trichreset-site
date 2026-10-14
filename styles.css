@@ -132,7 +132,8 @@
 
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; min-height: 0; }
-  .hero-media { order: -1; max-width: 340px; }
+  /* Claim first on phones: the art goes under the copy, not above it. */
+  .hero-media { order: 0; max-width: 280px; }
   .blob-a { width: 320px; height: 320px; top: -100px; right: -120px; }
   .blob-b { display: none; }
 }
@@ -652,3 +653,37 @@
 .screens li { flex: 0 0 auto; width: clamp(200px, 22vw, 270px); scroll-snap-align: start; }
 .screens img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); }
 .screens:focus-visible { outline: 2px solid var(--blue-primary); outline-offset: 4px; }
+
+/* ------------------------------------------------ hero claim + proof (14 Oct)
+   Claim, then the free track, then proof. The price moved below the player:
+   strangers were reading "$199.99 … subscription required" before any reason. */
+.hero-claim {
+  font-size: 19px; line-height: 1.6; color: var(--text-primary);
+  max-width: 40ch; margin-bottom: var(--space-xl);
+  padding-left: var(--space-base);
+  border-left: 2px solid var(--mauve-primary);
+}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.hero-proof { margin: var(--space-xl) 0 0; max-width: 46ch; }
+.hero-proof p { font-size: 17px; line-height: 1.55; color: var(--text-primary); font-style: italic; }
+.hero-proof footer { margin-top: var(--space-sm); font-size: var(--web-small); color: var(--text-muted); }
+.hero-proof cite { font-style: normal; color: var(--text-secondary); }
+
+.listen-proof {
+  list-style: none; padding: 0; margin: var(--space-2xl) 0 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+.listen-proof li {
+  background: var(--bg-base); border: 1px solid var(--border);
+  border-radius: var(--radius-2xl); padding: var(--space-xl);
+}
+.listen-proof blockquote { margin: 0; }
+.listen-proof p { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+.listen-proof footer { margin-top: var(--space-base); font-size: var(--web-small); color: var(--text-muted); }
+.listen-proof cite { font-style: normal; }
+.listen-after {
+  margin-top: var(--space-xl); max-width: var(--web-measure);
+  color: var(--text-secondary);
+}
+.listen-after a { display: inline-block; margin-top: var(--space-sm); color: var(--link-color); font-weight: 500; }
