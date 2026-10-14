@@ -403,6 +403,23 @@ def schema_tags(objs):
 def foot():
     return FOOT.format(links=' · '.join(f'<a href="/{p["slug"]}">{p["h1"]}</a>' for p in PAGES))
 
+# One image per guide for the 50/50 header and the hub rows.
+# 'art' = square meditation cover (assets/img/learn), 'phone' = real app screen.
+IMAGES = {
+    'what-is-trichotillomania': ('assets/img/learn/befriending_the_pull', 'Calm illustrated figure from the Trich Reset meditation Befriending the Pull', 'art'),
+    'trichotillomania-treatment': ('assets/img/learn/the_trigger_window', 'Illustrated path of light from the Trich Reset meditation The Trigger Window', 'art'),
+    'trichotillomania-apps': ('assets/img/app/screen-4', 'Trich Reset app screen: the Listen tab with urge resets, sleep and grounding tracks', 'phone'),
+    'how-to-stop-pulling-hair': ('assets/img/learn/calm_hands_hypnosis', 'Glowing open hands from the Trich Reset meditation Calm Hands Hypnosis', 'art'),
+}
+HUB_IMAGE = ('assets/img/learn/calm_hands_kind_mind', 'Two glowing faces from the Trich Reset meditation Calm Hands, Kind Mind', 'art')
+
+def figure(img, eager=False):
+    src, alt, kind = img
+    w, h = (540, 960) if kind == 'phone' else (720, 720)
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<figure class="split-media split-{kind}"><picture><source type="image/webp" srcset="/{src}.webp">'
+            f'<img src="/{src}.jpg" width="{w}" height="{h}" alt="{html.escape(alt)}" {load} decoding="async"></picture></figure>')
+
 def render(p):
     global ORDER
     ORDER = p['sources']
@@ -426,12 +443,17 @@ def render(p):
     out += NAV.format(play=PLAY.format(slug=p['slug']))
     out += f'''
 <main id="main" class="learn">
+ <header class="container split split-hero">
+  <div class="split-copy">
+   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Trich Reset</a> › <a href="/learn">Learn</a> › <span>{p['h1']}</span></nav>
+   <p class="label">{p['label']}</p>
+   <h1>{p['h1']}</h1>
+   <p class="split-desc">{html.escape(p['desc'])}</p>
+   <p class="byline">Updated <time datetime="{UPDATED}">{UPDATED_TEXT}</time> · By the Trich Reset team · Every claim links to its source below</p>
+  </div>
+  {figure(IMAGES[p['slug']], eager=True)}
+ </header>
  <article class="container learn-article">
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Trich Reset</a> › <a href="/learn">Learn</a> › <span>{p['h1']}</span></nav>
-  <p class="label">{p['label']}</p>
-  <h1>{p['h1']}</h1>
-  <p class="byline">Updated <time datetime="{UPDATED}">{UPDATED_TEXT}</time> · By the Trich Reset team · Every claim links to its source below</p>
-
   <div class="answer"><p class="label">The short answer</p><p>{summary}</p></div>
 {body}
   <h2>Common questions</h2>
@@ -453,8 +475,10 @@ def render(p):
 
 def render_hub():
     url = SITE + '/learn'
-    cards = ''.join(f'''<li class="hub-card"><a href="/{p['slug']}"><p class="label">{p['label'].replace('Learn · ', '')}</p>
-      <h2>{p['h1']}</h2><p>{html.escape(p['desc'])}</p></a></li>''' for p in PAGES)
+    cards = ''.join(f'''<li class="split hub-row"><div class="split-copy"><p class="label">{p['label'].replace('Learn · ', '')}</p>
+      <h2><a href="/{p['slug']}">{p['h1']}</a></h2><p>{html.escape(p['desc'])}</p>
+      <p><a class="btn btn-primary" href="/{p['slug']}">Read the guide</a></p></div>
+      {figure(IMAGES[p['slug']])}</li>''' for p in PAGES)
     schema = schema_tags([{'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'Learn about trichotillomania',
         'url': url, 'publisher': PUBLISHER, 'hasPart': [{'@type': 'Article', 'headline': p['h1'], 'url': f"{SITE}/{p['slug']}"} for p in PAGES]}])
     desc = 'Plain-English, research-sourced guides to trichotillomania: what it is, treatments compared, apps compared, and practical steps to stop pulling.'
@@ -462,10 +486,15 @@ def render_hub():
     out += NAV.format(play=PLAY.format(slug='learn'))
     out += f'''
 <main id="main" class="learn">
- <div class="container learn-article">
-  <p class="label">Learn</p>
-  <h1>Trichotillomania, explained properly.</h1>
-  <p class="lede">Plain-English guides to hair pulling disorder. Every fact links to the research it came from, so you can check it yourself.</p>
+ <header class="container split split-hero">
+  <div class="split-copy">
+   <p class="label">Learn</p>
+   <h1>Trichotillomania, <span class="hl">explained properly.</span></h1>
+   <p class="lede">Plain-English guides to hair pulling disorder. Every fact links to the research it came from, so you can check it yourself.</p>
+  </div>
+  {figure(HUB_IMAGE, eager=True)}
+ </header>
+ <div class="container">
   <ul class="hub">{cards}</ul>
  </div>
 </main>
