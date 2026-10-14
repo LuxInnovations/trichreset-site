@@ -406,12 +406,12 @@ def foot():
 # One image per guide for the 50/50 header and the hub rows.
 # 'art' = square meditation cover (assets/img/learn), 'phone' = real app screen.
 IMAGES = {
-    'what-is-trichotillomania': ('assets/img/learn/befriending_the_pull', 'Calm illustrated figure from the Trich Reset meditation Befriending the Pull', 'art'),
-    'trichotillomania-treatment': ('assets/img/learn/the_trigger_window', 'Illustrated path of light from the Trich Reset meditation The Trigger Window', 'art'),
+    'what-is-trichotillomania': ('assets/img/learn/befriending_the_pull', 'Gentle waves on a moonlit shore, cover art for the Trich Reset meditation Befriending the Pull', 'art'),
+    'trichotillomania-treatment': ('assets/img/learn/the_trigger_window', 'The Milky Way over a quiet desert valley, cover art for the Trich Reset meditation The Trigger Window', 'art'),
     'trichotillomania-apps': ('assets/img/app/screen-4', 'Trich Reset app screen: the Listen tab with urge resets, sleep and grounding tracks', 'phone'),
-    'how-to-stop-pulling-hair': ('assets/img/learn/calm_hands_hypnosis', 'Glowing open hands from the Trich Reset meditation Calm Hands Hypnosis', 'art'),
+    'how-to-stop-pulling-hair': ('assets/img/learn/calm_hands_hypnosis', 'Aurora over a still mountain lake, cover art for the Trich Reset meditation Calm Hands Hypnosis', 'art'),
 }
-HUB_IMAGE = ('assets/img/learn/calm_hands_kind_mind', 'Two glowing faces from the Trich Reset meditation Calm Hands, Kind Mind', 'art')
+HUB_IMAGE = ('assets/img/learn/calm_hands_kind_mind', 'A pink lotus on calm water at twilight, cover art for the Trich Reset meditation Calm Hands, Kind Mind', 'art')
 
 def figure(img, eager=False):
     src, alt, kind = img
