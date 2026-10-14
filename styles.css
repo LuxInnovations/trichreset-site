@@ -687,3 +687,17 @@
   color: var(--text-secondary);
 }
 .listen-after a { display: inline-block; margin-top: var(--space-sm); color: var(--link-color); font-weight: 500; }
+
+/* ---------------------------------------------------- the full library */
+.lib-count {
+  font-size: var(--web-small); color: var(--mauve-primary);
+  margin-bottom: var(--space-md); font-weight: 500;
+}
+.lib-why {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg); margin-top: var(--space-lg);
+}
+@media (max-width: 800px) { .lib-why { grid-template-columns: 1fr; } }
+.lib-why .label { margin-bottom: var(--space-base); }
+.lib-why p + p { margin-top: var(--space-md); }
+.lib-source { font-size: var(--web-small); color: var(--text-muted) !important; }
