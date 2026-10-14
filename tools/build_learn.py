@@ -212,7 +212,7 @@ page('trichotillomania-apps',
  lambda: f'''There are four main types of trichotillomania app: <strong>therapist platforms</strong> (TrichStop),
  <strong>wearables</strong> that buzz when your hand moves (HabitAware Keen2), <strong>trackers with a habit
  reversal course</strong> (SkinAware), and <strong>audio-first apps for the urge itself</strong> (Trich Reset). They
- suit different people. This page is written by the maker of Trich Reset, so we have stuck to facts you can check
+ suit different people. This page is written by the team behind Trich Reset, so we have stuck to facts you can check
  and linked our source for other apps' prices.{cite('skinaware')}''',
  lambda: f'''
 <h2>Side by side</h2>
@@ -393,7 +393,7 @@ HEAD = '''<!DOCTYPE html>
 <a class="skip" href="#main">Skip to content</a>
 '''
 
-AUTHOR = {'@type': 'Person', 'name': 'Victoria Lang', 'jobTitle': 'Founder, Trich Reset'}
+AUTHOR = {'@type': 'Organization', 'name': 'Trich Reset', 'url': SITE}
 PUBLISHER = {'@type': 'Organization', 'name': 'Lux Innovations', 'url': SITE,
              'logo': {'@type': 'ImageObject', 'url': SITE + '/assets/img/app-icon-180.png'}}
 
@@ -430,7 +430,7 @@ def render(p):
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Trich Reset</a> › <a href="/learn">Learn</a> › <span>{p['h1']}</span></nav>
   <p class="label">{p['label']}</p>
   <h1>{p['h1']}</h1>
-  <p class="byline">Updated <time datetime="{UPDATED}">{UPDATED_TEXT}</time> · By Victoria Lang, founder of Trich Reset · Every claim links to its source below</p>
+  <p class="byline">Updated <time datetime="{UPDATED}">{UPDATED_TEXT}</time> · By the Trich Reset team · Every claim links to its source below</p>
 
   <div class="answer"><p class="label">The short answer</p><p>{summary}</p></div>
 {body}
