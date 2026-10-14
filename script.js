@@ -84,19 +84,19 @@
 
   audio.addEventListener('play', function () {
     btn.classList.add('is-playing');
-    btn.setAttribute('aria-label', 'Pause the meditation Right now');
-    hint.textContent = 'Playing — Right now.';
+    btn.setAttribute('aria-label', 'Pause the meditation Boredom and the Body');
+    hint.textContent = 'Playing: Boredom and the Body.';
   });
 
   audio.addEventListener('pause', function () {
     btn.classList.remove('is-playing');
-    btn.setAttribute('aria-label', 'Play the meditation Right now');
+    btn.setAttribute('aria-label', 'Play the meditation Boredom and the Body');
     if (!audio.ended) hint.textContent = 'Paused.';
   });
 
   audio.addEventListener('ended', function () {
     btn.classList.remove('is-playing');
-    btn.setAttribute('aria-label', 'Play the meditation Right now');
+    btn.setAttribute('aria-label', 'Play the meditation Boredom and the Body');
     scrub.value = 0;
     tCur.textContent = '0:00';
     hint.textContent = 'That was one of eight. The rest are in the app.';

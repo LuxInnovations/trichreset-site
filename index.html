@@ -82,6 +82,7 @@
     <nav class="nav-links" aria-label="Sections">
       <a href="#listen">Listen</a>
       <a href="#inside">What's inside</a>
+      <a href="#library">Library</a>
       <a href="#pricing">Pricing</a>
       <a href="/learn">Learn</a>
       <a href="#faq">Questions</a>
@@ -98,7 +99,7 @@
     <div class="hero-copy">
       <p class="label">A trichotillomania app, for Android</p>
       <h1>
-        <span>For the ten seconds</span>
+        <span>For the <span class="hl">ten seconds</span></span>
         <span>your hand starts moving.</span>
       </h1>
 
@@ -142,26 +143,28 @@
     <div class="listen-head">
       <p class="label">Free on this page · no signup, no email</p>
       <h2>Hear one before you pay<br>for any of them.</h2>
-      <p class="lede">This is <em>Right now</em>, the four-minute track for the moment the urge
-        arrives. Put it on the next time your hand starts moving and see what happens to the
-        urge. It's yours free, right here. Press play.</p>
+      <p class="lede">This is <em>Boredom and the Body</em>, ten minutes for one of the most
+        common triggers there is: sitting still with <strong>nothing for your hands to do</strong>.
+        It's built around the Bored Puppy, and why your hands aren't bad, just under-stimulated.
+        Put it on the next time you're stuck on the couch or at your desk. It's yours free, right
+        here. Press play.</p>
     </div>
 
-    <div class="player dark-zone" id="player" data-src="assets/audio/sample-right-now-web.mp3">
+    <div class="player dark-zone" id="player" data-src="assets/audio/sample-boredom-and-the-body-web.mp3">
       <figure class="player-art">
         <picture>
-          <source type="image/webp" srcset="assets/img/meditation-right-now-480.webp">
-          <img src="assets/img/meditation-right-now-480.jpg" width="480" height="480" alt="Trich Reset meditation player artwork for the track Right now" loading="lazy" decoding="async">
+          <source type="image/webp" srcset="assets/img/covers/boredom_and_the_body.webp">
+          <img src="assets/img/covers/boredom_and_the_body.jpg" width="400" height="400" alt="Cover art for the Trich Reset meditation Boredom and the Body" loading="lazy" decoding="async">
         </picture>
       </figure>
 
       <div class="player-body">
-        <p class="label">Guided meditation for trichotillomania</p>
-        <h3>Right now</h3>
-        <p class="player-note">For the moment your hand is already moving.</p>
+        <p class="label">Guided meditation for trichotillomania · 10 min</p>
+        <h3>Boredom and the Body</h3>
+        <p class="player-note">For the moments your hands have nothing to do.</p>
 
         <div class="player-controls">
-          <button class="play" id="playBtn" type="button" aria-label="Play the meditation Right now">
+          <button class="play" id="playBtn" type="button" aria-label="Play the meditation Boredom and the Body">
             <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
             <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.5 5h3.5v14H7.5zM13 5h3.5v14H13z"/></svg>
           </button>
@@ -175,7 +178,7 @@
 
         <p class="player-hint" id="playerHint">Audio loads when you press play.</p>
         <audio id="audio" preload="none" playsinline>
-          <source src="assets/audio/sample-right-now-web.mp3" type="audio/mpeg">
+          <source src="assets/audio/sample-boredom-and-the-body-web.mp3" type="audio/mpeg">
           Your browser can't play audio. You can hear this meditation inside the app.
         </audio>
       </div>
@@ -198,8 +201,8 @@
       </li>
     </ul>
 
-    <p class="listen-after">Like it? There are more like this inside the app, with new ones every
-      month. <strong>$199.99 a year</strong>, which is $16.67 a month, through Google Play.
+    <p class="listen-after">Like it? There are <strong>20 more</strong> inside the app, with new
+      ones every month. <strong>$199.99 a year</strong>, which is $16.67 a month, through Google Play.
       <a href="https://play.google.com/store/apps/details?id=trichreset.com&amp;utm_source=trichreset.com&amp;utm_medium=web&amp;utm_campaign=site&amp;utm_content=listen">Get Trich Reset on Google Play</a></p>
   </div>
 
@@ -213,7 +216,7 @@
   <div class="container feature">
     <div class="feature-copy">
       <p class="label">Meditation for hair pulling</p>
-      <h2>When the urge hits,<br>press play.</h2>
+      <h2>When the urge hits,<br><span class="hl">press play.</span></h2>
       <p>Short resets for the middle of the day, when you just need to break the moment and carry
         on. You don't have to sit for forty minutes. And longer, deeper sessions for the morning
         or night, when you do have the time to properly settle in.</p>
@@ -232,87 +235,79 @@
   </div>
 </section>
 
-<!-- ==================== MEDITATION GALLERY (expanding panels) ==================== -->
-<section class="band band-surface" id="gallery">
+<!-- ==================== THE MEDITATION LIBRARY ====================
+     All 21 tracks with their real covers, grouped by when you'd use them.
+     Counts and lengths from the live audio_tracks table (15 Oct 2026).
+     Covers: assets/img/covers/<slug>.webp|jpg (400px, from the app's assets/covers).
+     ================================================================ -->
+<section class="band band-surface" id="library">
   <svg class="curve curve-up curve-base" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <path d="M0,0 C260,75 500,85 740,60 C980,35 1210,5 1440,0 L1440,0 L0,0 Z"></path>
   </svg>
   <div class="container">
     <div class="grid-head">
       <p class="label">The meditation library</p>
-      <h2>Every meditation,<br>one press away.</h2>
-    </div>
-    <div class="elastic" id="elastic">
-      <div class="elastic-panel is-active" data-panel tabindex="0" role="button"
-           aria-label="Right now, for the moment your hand is already moving">
-        <img src="assets/img/meditation-right-now-480.jpg" alt="" loading="lazy" decoding="async">
-        <p class="elastic-shut" aria-hidden="true">Right now</p>
-        <div class="elastic-copy">
-          <p class="elastic-tag">Right now</p>
-          <p class="elastic-sub">For the moment your hand is already moving.</p>
-        </div>
-      </div>
-      <div class="elastic-panel" data-panel tabindex="0" role="button"
-           aria-label="Just breathe, a longer track for winding down">
-        <img src="assets/img/meditation-just-breathe-480.jpg" alt="" loading="lazy" decoding="async">
-        <p class="elastic-shut" aria-hidden="true">Just breathe</p>
-        <div class="elastic-copy">
-          <p class="elastic-tag">Just breathe</p>
-          <p class="elastic-sub">A longer track for winding down.</p>
-        </div>
-      </div>
-      <div class="elastic-panel" data-panel tabindex="0" role="button"
-           aria-label="Texture swap, something for your hands to do instead">
-        <img src="assets/img/meditation-texture-swap-480.jpg" alt="" loading="lazy" decoding="async">
-        <p class="elastic-shut" aria-hidden="true">Texture swap</p>
-        <div class="elastic-copy">
-          <p class="elastic-tag">Texture swap</p>
-          <p class="elastic-sub">Something for your hands to do instead.</p>
-        </div>
-      </div>
-    </div>
-    <p class="elastic-note">Three of the 21. <a href="#library">See the whole library</a>.</p>
-  </div>
-</section>
-
-<!-- ==================== THE FULL LIBRARY + WHY REPEAT ====================
-     Counts and lengths from the live audio_tracks table (15 Oct 2026).
-     Update the numbers when tracks are added.
-     ===================================================================== -->
-<section class="band" id="library">
-  <div class="container">
-    <div class="grid-head">
-      <p class="label">What's in the library</p>
-      <h2>21 meditations.<br>Over six hours of listening.</h2>
+      <h2>21 meditations.<br>Over <span class="hl">six hours</span> of listening.</h2>
       <p class="lede">Not a handful of tracks. A full library that covers the whole day, from the
         moment your hand starts moving to the moment you fall asleep.</p>
     </div>
-    <ul class="cards">
-      <li class="card soft">
-        <p class="lib-count">6 tracks · 4 to 11 min</p>
+    <div class="lib-group">
+      <div class="lib-group-head">
         <h3>In the moment.</h3>
-        <p>Five quick resets for when the urge is already here: Right Now, Hands Down, The Wave,
-          Texture Swap and The Mirror. Plus Just Breathe, for slowing your breathing right down.</p>
-      </li>
-      <li class="card soft">
-        <p class="lib-count">5 tracks · about 10 min each</p>
+        <p class="lib-count">6 tracks · 4 to 11 min</p>
+        <p class="lib-sub">For when the urge is already here.</p>
+      </div>
+      <ul class="covers">
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/right_now.webp"><img src="assets/img/covers/right_now.jpg" width="400" height="400" alt="Cover art for Right Now" loading="lazy" decoding="async"></picture><p class="cover-t">Right Now</p><p class="cover-m">4 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/hands_down.webp"><img src="assets/img/covers/hands_down.jpg" width="400" height="400" alt="Cover art for Hands Down" loading="lazy" decoding="async"></picture><p class="cover-t">Hands Down</p><p class="cover-m">5 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/the_wave.webp"><img src="assets/img/covers/the_wave.jpg" width="400" height="400" alt="Cover art for The Wave" loading="lazy" decoding="async"></picture><p class="cover-t">The Wave</p><p class="cover-m">5 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/texture_swap.webp"><img src="assets/img/covers/texture_swap.jpg" width="400" height="400" alt="Cover art for Texture Swap" loading="lazy" decoding="async"></picture><p class="cover-t">Texture Swap</p><p class="cover-m">5 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/the_mirror.webp"><img src="assets/img/covers/the_mirror.jpg" width="400" height="400" alt="Cover art for The Mirror" loading="lazy" decoding="async"></picture><p class="cover-t">The Mirror</p><p class="cover-m">7 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/just_breathe.webp"><img src="assets/img/covers/just_breathe.jpg" width="400" height="400" alt="Cover art for Just Breathe" loading="lazy" decoding="async"></picture><p class="cover-t">Just Breathe</p><p class="cover-m">11 min</p></li>
+      </ul>
+    </div>
+    <div class="lib-group">
+      <div class="lib-group-head">
         <h3>Through the day.</h3>
-        <p>Grounding for the moments pulling tends to start: Morning Reset, The Trigger Window,
-          Befriending the Pull, Boredom and the Body, and The Coarse One.</p>
-      </li>
-      <li class="card soft">
-        <p class="lib-count">6 tracks · 14 to 40 min</p>
+        <p class="lib-count">5 tracks · about 10 min each</p>
+        <p class="lib-sub">Grounding for the moments pulling tends to start.</p>
+      </div>
+      <ul class="covers">
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/morning_reset.webp"><img src="assets/img/covers/morning_reset.jpg" width="400" height="400" alt="Cover art for Morning Reset" loading="lazy" decoding="async"></picture><p class="cover-t">Morning Reset</p><p class="cover-m">9 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/boredom_and_the_body.webp"><img src="assets/img/covers/boredom_and_the_body.jpg" width="400" height="400" alt="Cover art for Boredom &amp; the Body" loading="lazy" decoding="async"></picture><p class="cover-t">Boredom &amp; the Body</p><p class="cover-m">10 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/the_trigger_window.webp"><img src="assets/img/covers/the_trigger_window.jpg" width="400" height="400" alt="Cover art for The Trigger Window" loading="lazy" decoding="async"></picture><p class="cover-t">The Trigger Window</p><p class="cover-m">10 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/befriending_the_pull.webp"><img src="assets/img/covers/befriending_the_pull.jpg" width="400" height="400" alt="Cover art for Befriending the Pull" loading="lazy" decoding="async"></picture><p class="cover-t">Befriending the Pull</p><p class="cover-m">10 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/the_coarse_one.webp"><img src="assets/img/covers/the_coarse_one.jpg" width="400" height="400" alt="Cover art for The Coarse One" loading="lazy" decoding="async"></picture><p class="cover-t">The Coarse One</p><p class="cover-m">10 min</p></li>
+      </ul>
+    </div>
+    <div class="lib-group">
+      <div class="lib-group-head">
         <h3>Deeper work.</h3>
-        <p>The Stillness Protocol in two lengths, protocols for automatic and for focused pulling,
-          the Calm Hands hypnosis, and an affirmation track with two voices, one in each ear.</p>
-      </li>
-      <li class="card soft">
-        <p class="lib-count">4 tracks · 20 to 60 min</p>
+        <p class="lib-count">6 tracks · 14 to 40 min</p>
+        <p class="lib-sub">Protocols, hypnosis and affirmations for when you have time to settle in.</p>
+      </div>
+      <ul class="covers">
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/stillness_protocol.webp"><img src="assets/img/covers/stillness_protocol.jpg" width="400" height="400" alt="Cover art for The Stillness Protocol" loading="lazy" decoding="async"></picture><p class="cover-t">The Stillness Protocol</p><p class="cover-m">27 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/stillness_protocol.webp"><img src="assets/img/covers/stillness_protocol.jpg" width="400" height="400" alt="Cover art for The Stillness Protocol: Full" loading="lazy" decoding="async"></picture><p class="cover-t">The Stillness Protocol: Full</p><p class="cover-m">40 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/automatic_pulling_protocol.webp"><img src="assets/img/covers/automatic_pulling_protocol.jpg" width="400" height="400" alt="Cover art for Automatic Pulling Protocol" loading="lazy" decoding="async"></picture><p class="cover-t">Automatic Pulling Protocol</p><p class="cover-m">23 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/focused_pulling_protocol.webp"><img src="assets/img/covers/focused_pulling_protocol.jpg" width="400" height="400" alt="Cover art for Focused Pulling Protocol" loading="lazy" decoding="async"></picture><p class="cover-t">Focused Pulling Protocol</p><p class="cover-m">22 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/calm_hands_hypnosis.webp"><img src="assets/img/covers/calm_hands_hypnosis.jpg" width="400" height="400" alt="Cover art for Calm Hands Hypnosis" loading="lazy" decoding="async"></picture><p class="cover-t">Calm Hands Hypnosis</p><p class="cover-m">20 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/calm_hands_kind_mind.webp"><img src="assets/img/covers/calm_hands_kind_mind.jpg" width="400" height="400" alt="Cover art for Calm Hands, Kind Mind" loading="lazy" decoding="async"></picture><p class="cover-t">Calm Hands, Kind Mind</p><p class="cover-m">14 min</p></li>
+      </ul>
+    </div>
+    <div class="lib-group">
+      <div class="lib-group-head">
         <h3>Into sleep.</h3>
-        <p>For pulling in bed and the hour before it: Hands at Rest, The Quiet Hour, Sleep Reset,
-          and a full hour that fades out with no wake up.</p>
-      </li>
-    </ul>
+        <p class="lib-count">4 tracks · 20 to 60 min</p>
+        <p class="lib-sub">For pulling in bed and the hour before it.</p>
+      </div>
+      <ul class="covers">
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/hands_at_rest.webp"><img src="assets/img/covers/hands_at_rest.jpg" width="400" height="400" alt="Cover art for Hands at Rest" loading="lazy" decoding="async"></picture><p class="cover-t">Hands at Rest</p><p class="cover-m">20 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/the_quiet_hour.webp"><img src="assets/img/covers/the_quiet_hour.jpg" width="400" height="400" alt="Cover art for The Quiet Hour" loading="lazy" decoding="async"></picture><p class="cover-t">The Quiet Hour</p><p class="cover-m">25 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/sleep_reset.webp"><img src="assets/img/covers/sleep_reset.jpg" width="400" height="400" alt="Cover art for Sleep Reset" loading="lazy" decoding="async"></picture><p class="cover-t">Sleep Reset</p><p class="cover-m">30 min</p></li>
+        <li class="cover"><picture><source type="image/webp" srcset="assets/img/covers/sleep_60.webp"><img src="assets/img/covers/sleep_60.jpg" width="400" height="400" alt="Cover art for Sleep 60" loading="lazy" decoding="async"></picture><p class="cover-t">Sleep 60</p><p class="cover-m">60 min</p></li>
+      </ul>
+    </div>
 
     <div class="lib-why">
       <div class="card soft">
@@ -371,7 +366,7 @@
   <div class="container feature feature-reverse">
     <div class="feature-copy">
       <p class="label">How the audio is made</p>
-      <h2>Built to meet you<br>where the day is.</h2>
+      <h2>Built to meet you<br><span class="hl">where the day is.</span></h2>
       <p>Under the voice in every session there's a quiet sound bed. Two tones, slightly apart,
         one in each ear, that your brain hears as a single slow pulse. It's called binaural audio,
         and it's designed to invite your brain waves to slow down and follow that rhythm.</p>
@@ -379,21 +374,17 @@
         you become more open to what you're hearing. That's the state where the suggestions in
         each session can really land, instead of being argued with.</p>
       <p>Come back to it night after night and you're practising a new response to the urge:
-        notice it, pause, choose something else. Habits are learned, and with repetition they can
-        be relearned. That's the rewiring every session is built around.</p>
+        notice it, pause, choose something else. <strong>Habits are learned, and with repetition they can
+        be relearned.</strong> That's the rewiring every session is built around.</p>
       <p>At night the pulse runs low, down where the body drifts toward rest, and eases you toward
         sleep. In the morning it runs higher, up where attention sharpens, so you come out awake
         and set for the day rather than heavy.</p>
       <p class="feature-meta">Best with headphones. It still works without them.</p>
     </div>
     <div class="feature-media">
-      <div class="mock mock-tones dark-zone" role="img" aria-label="Illustration of two sound waves, one low and slow for night sessions, one higher and tighter for morning sessions.">
-        <p class="mock-label">Night</p>
-        <div class="tone tone-low"></div>
-        <p class="mock-label">Morning</p>
-        <div class="tone tone-high"></div>
-        <p class="mock-note">A slow pulse to drift on, or a brighter one to wake up with.</p>
-      </div>
+      <figure class="phone-shot">
+        <picture><source type="image/webp" srcset="assets/img/app/screen-4.webp"><img src="assets/img/app/screen-4.jpg" width="540" height="960" alt="Trich Reset app screen: the Listen tab, with urge resets, sleep, calm and grounding tracks" loading="lazy" decoding="async"></picture>
+      </figure>
     </div>
   </div>
 </section>
@@ -406,34 +397,19 @@
   <div class="container feature feature-reverse">
     <div class="feature-copy">
       <p class="label">Streaks and progress</p>
-      <h2>You've never been able<br>to tell if it's working.</h2>
+      <h2>You've never been able<br>to tell if it's <span class="hl">working.</span></h2>
       <p>Some weeks feel worse than where you started, and you can't say if that's real or just
         the bad days being loud. So you drift, because there's nothing to stay for.</p>
       <p>Trich Reset counts every day you check in, not only the clean ones. Streaks earn badges
         and milestones, and after a few weeks you can see the actual shape of it: the direction,
-        the pattern, the hard days that passed anyway. Progress you can see is progress you can
-        stay with. That is the whole reason the tracking is there.</p>
+        the pattern, the hard days that passed anyway. <strong>Progress you can see is progress you can
+        stay with.</strong> That is the whole reason the tracking is there.</p>
       <p class="feature-meta">A hard day still counts. The number never drops to zero.</p>
     </div>
     <div class="feature-media">
-      <!-- CSS representation of the in-app streak row. Not a screenshot. -->
-      <div class="mock mock-streak dark-zone" role="img" aria-label="Illustration of a recovery-aware streak week: five steady days, one hard day marked in mauve rather than cleared, and a current day, with the count still reading 23 days tracked.">
-        <p class="mock-label">This week</p>
-        <ul class="streak-week">
-          <li class="d ok"><span>M</span></li>
-          <li class="d ok"><span>T</span></li>
-          <li class="d ok"><span>W</span></li>
-          <li class="d hard"><span>T</span></li>
-          <li class="d ok"><span>F</span></li>
-          <li class="d ok"><span>S</span></li>
-          <li class="d now"><span>S</span></li>
-        </ul>
-        <div class="mock-row">
-          <p class="mock-num">23</p>
-          <p class="mock-cap">days tracked<br><span>including Thursday</span></p>
-        </div>
-        <p class="mock-note">Thursday was hard. It still counts.</p>
-      </div>
+      <figure class="phone-shot">
+        <picture><source type="image/webp" srcset="assets/img/app/screen-7.webp"><img src="assets/img/app/screen-7.jpg" width="540" height="960" alt="Trich Reset app screen: your week, with streak, mood and pulling side by side" loading="lazy" decoding="async"></picture>
+      </figure>
     </div>
   </div>
 </section>
@@ -443,7 +419,7 @@
   <div class="container feature">
     <div class="feature-copy">
       <p class="label">A hair pulling tracker app</p>
-      <h2>Capture the moment<br>in seconds.</h2>
+      <h2>Capture the moment<br><span class="hl">in seconds.</span></h2>
       <p>You know how this usually goes. The tracker app that turns logging into homework, so by
         week two you have quietly stopped opening it.</p>
       <p>Here it is a few taps. Where you were, what was going on, how strong it was, and you are
@@ -451,22 +427,9 @@
       <p class="feature-meta">The faster it is, the longer you keep doing it.</p>
     </div>
     <div class="feature-media">
-      <!-- CSS representation of a log entry. Not a screenshot. -->
-      <div class="mock mock-log dark-zone" role="img" aria-label="Illustration of a Trich Reset urge log entry: 9:40 pm, on the sofa, urge strength three of five, rode it out, logged in eleven seconds.">
-        <p class="mock-label">New entry</p>
-        <p class="log-time">9:40 pm</p>
-        <ul class="log-chips">
-          <li class="chip on">On the sofa</li>
-          <li class="chip">Desk</li>
-          <li class="chip on">Watching TV</li>
-        </ul>
-        <p class="mock-label">Strength</p>
-        <ul class="log-strength">
-          <li class="s on"></li><li class="s on"></li><li class="s on"></li><li class="s"></li><li class="s"></li>
-        </ul>
-        <p class="log-out"><span class="tick" aria-hidden="true"></span> Rode it out</p>
-        <p class="mock-note">Logged in 11 seconds.</p>
-      </div>
+      <figure class="phone-shot">
+        <picture><source type="image/webp" srcset="assets/img/app/screen-6.webp"><img src="assets/img/app/screen-6.jpg" width="540" height="960" alt="Trich Reset app screen: logging a pull in a few taps" loading="lazy" decoding="async"></picture>
+      </figure>
     </div>
   </div>
 </section>
@@ -479,7 +442,7 @@
   <div class="container feature feature-reverse">
     <div class="feature-copy">
       <p class="label">The Learn page</p>
-      <h2>Pulling isn't<br>one thing.</h2>
+      <h2>Pulling isn't<br><span class="hl">one thing.</span></h2>
       <p>Some people pull for the feel of it. Some when a certain thought shows up. Some to take
         the edge off boredom or stress. Some barely notice their hand has moved. Most people are
         more than one of these, and that is normal.</p>
@@ -494,16 +457,9 @@
       </ul>
     </div>
     <div class="feature-media">
-      <!-- CSS representation of the lessons list. Not a screenshot. -->
-      <div class="mock mock-lessons dark-zone" role="img" aria-label="Illustration of the Trich Reset Learn page: three modules, seventeen short reads. Module one, why it happens, complete. Module two, map your patterns, the SCAMP model. Module three, regrowth and self-image.">
-        <p class="mock-label">Learn · 3 modules · 17 reads</p>
-        <ol class="lesson-list">
-          <li class="lesson done"><span class="n">01</span><span class="t">Why it happens<em>foundations</em></span></li>
-          <li class="lesson"><span class="n">02</span><span class="t">Map your patterns<em>SCAMP model</em></span></li>
-          <li class="lesson"><span class="n">03</span><span class="t">Regrowth and self-image<em>while you wait</em></span></li>
-        </ol>
-        <p class="mock-module">A short questionnaire <span>finds your profile</span></p>
-      </div>
+      <figure class="phone-shot">
+        <picture><source type="image/webp" srcset="assets/img/app/screen-3.webp"><img src="assets/img/app/screen-3.jpg" width="540" height="960" alt="Trich Reset app screen: the Learn tab, three modules and seventeen lessons" loading="lazy" decoding="async"></picture>
+      </figure>
     </div>
   </div>
 </section>
@@ -511,30 +467,33 @@
 <!-- ==================== FEATURE — THE STILLNESS PROTOCOL ==================== -->
 <section class="band band-surface" id="protocol">
   <div class="container">
+    <div class="protocol-top">
+    <figure class="protocol-art"><picture><source type="image/webp" srcset="assets/img/covers/stillness_protocol.webp"><img src="assets/img/covers/stillness_protocol.jpg" width="400" height="400" alt="Cover art for The Stillness Protocol" loading="lazy" decoding="async"></picture></figure>
     <div class="grid-head">
       <p class="label">The Stillness Protocol</p>
-      <h2>Longer sessions,<br>built stage by stage.</h2>
+      <h2>Longer sessions,<br>built <span class="hl">stage by stage.</span></h2>
       <p class="lede">You already know the willpower version doesn't hold. Hair pulling is a
         nervous system doing a job, not a character flaw. The Stillness Protocol is the part of the
         app built on that: longer guided sessions, made for coming back to night after night over
         weeks and months. Every stage does a specific piece of work, in a deliberate order, drawing
         on the published work of people who have spent their careers on this.</p>
     </div>
-    <ul class="builton">
-      <li><b>Habit Reversal Training</b> (Azrin and Nunn). Awareness first, then changing the
+    </div>
+    <ul class="builton builton-icons">
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span><b>Habit Reversal Training</b> (Azrin and Nunn). Awareness first, then changing the
         setup around the behaviour, then a competing response. The most researched behavioural
         approach for pulling.</li>
-      <li><b>The ComB model</b> (Charles Mansueto, Suzanne Mouton-Odum). Maps why a given person
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></span><b>The ComB model</b> (Charles Mansueto, Suzanne Mouton-Odum). Maps why a given person
         pulls across sensory, thought, emotion, movement and place, then works each one.</li>
-      <li><b>Acceptance and Commitment work</b> (Douglas Woods, Michael Twohig). Added to the
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M2 14c2.5 0 2.5-4 5-4s2.5 4 5 4 2.5-4 5-4 2.5 4 5 4"/><path d="M2 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" opacity=".5"/></svg></span><b>Acceptance and Commitment work</b> (Douglas Woods, Michael Twohig). Added to the
         behavioural core so an urge does not have to be won or lost.</li>
-      <li><b>Subtype research</b> (Jon Grant). Sensory, low-awareness and impulsive styles of
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v10M12 11l-6 6M12 11l6 6"/></svg></span><b>Subtype research</b> (Jon Grant). Sensory, low-awareness and impulsive styles of
         pulling each need a different response.</li>
-      <li><b>Self-compassion research</b> (Kristin Neff). Shame keeps the cycle going.
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></span><b>Self-compassion research</b> (Kristin Neff). Shame keeps the cycle going.
         Self-kindness lowers it.</li>
-      <li><b>Polyvagal theory</b> (Stephen Porges). Pulling is the nervous system regulating its
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M2 12h4l2-5 4 10 3-7 2 2h5"/></svg></span><b>Polyvagal theory</b> (Stephen Porges). Pulling is the nervous system regulating its
         state. Shift the baseline and the pull is needed less.</li>
-      <li><b>The TLC Foundation for BFRBs.</b> A leading nonprofit for hair pulling and
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span><b>The TLC Foundation for BFRBs.</b> A leading nonprofit for hair pulling and
         related behaviours.</li>
     </ul>
     <p class="feature-meta">Trich Reset draws on this published work. It isn't affiliated with or
@@ -825,7 +784,9 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="script.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script src="fan.js" defer></script>
 </body>
 </html>
