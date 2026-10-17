@@ -9,8 +9,8 @@ import html, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = 'https://trichreset.com'
-UPDATED = '2026-10-14'
-UPDATED_TEXT = '14 October 2026'
+UPDATED = '2026-10-18'
+UPDATED_TEXT = '18 October 2026'
 PLAY = ('https://play.google.com/store/apps/details?id=trichreset.com'
         '&amp;utm_source=trichreset.com&amp;utm_medium=web&amp;utm_campaign=learn&amp;utm_content={slug}')
 
@@ -44,6 +44,14 @@ S = {
                'https://doi.org/10.1192/bjp.bp.107.048827'),
  'skinaware': ('SkinAware. Best apps to stop hair pulling (2026 comparison). Updated 20 August 2026. Used for third-party app prices.',
                'https://www.skinawareapp.com/blog/hair-pulling-app'),
+ 'sa-medicare': ('Services Australia. Mental health care and Medicare.',
+               'https://www.servicesaustralia.gov.au/mental-health-care-and-medicare'),
+ 'betteraccess': ('Australian Government Department of Health, Disability and Ageing. Better Access initiative.',
+               'https://www.health.gov.au/our-work/better-access-initiative'),
+ 'franklin2011': ('Franklin ME, Edson AL, Ledley DA, Cahill SP. Behavior therapy for pediatric trichotillomania: a randomized controlled trial. <em>Journal of the American Academy of Child and Adolescent Psychiatry</em>. 2011;50(8):763-771.',
+               'https://pmc.ncbi.nlm.nih.gov/articles/PMC3143367/'),
+ 'tlc2011':   ('Scientific Advisory Board of the Trichotillomania Learning Center (now the TLC Foundation for BFRBs). <em>Expert Consensus Treatment Guidelines for Trichotillomania, Skin Picking and Other Body-Focused Repetitive Behaviors</em>. 2011.',
+               'https://arfamiliesfirst.com/wp-content/uploads/2016/05/Trichotillomania-ExpertGuidelines_000.pdf'),
 }
 
 ORDER = []  # the current page's source order, set in render()
@@ -436,6 +444,148 @@ page('trichotillomania-and-adhd',
   ('What helps hair pulling if you have ADHD?', 'The same habit reversal skills, made short and visible: a fidget kept where you pull, gloves or a hat during long focus sessions, one simple plan, and guided audio so you do not have to remember the steps yourself.')],
  ['chesivoir2022','grant2020','farhat2025','simon2009','apa2013','flessner2008','mansueto1997','azrin1973','farhat2020'])
 
+# 6 ------------------------------------------------------------- Australia
+page('trichotillomania-help-australia',
+ 'Trichotillomania Help in Australia: Medicare, Psychologists and Support',
+ 'Trichotillomania help in Australia',
+ 'Learn · Australia',
+ 'How to get help for hair pulling in Australia: a GP mental health treatment plan, up to 10 Medicare-rebated psychology sessions a year, finding a BFRB-trained psychologist, and who to call.',
+ lambda: f'''In Australia, start with your <strong>GP</strong>. They can write a <strong>mental health treatment plan</strong>
+ and refer you to a psychologist, and Medicare then pays part of the cost of <strong>up to 10 individual sessions</strong>
+ (and 10 group sessions) each calendar year.{cite('sa-medicare','betteraccess')} The first referral is for up to 6 sessions,
+ then your GP reviews and can refer you for more.{cite('sa-medicare')} Ask for a psychologist who uses <strong>habit reversal
+ training</strong>, the treatment with the strongest evidence for trichotillomania.{cite('farhat2020')}''',
+ lambda: f'''
+<h2>Step by step</h2>
+<div class="table-wrap">
+<table>
+ <caption>Getting Medicare-rebated help for hair pulling in Australia</caption>
+ <thead><tr><th scope="col">Step</th><th scope="col">What to do</th><th scope="col">Tip</th></tr></thead>
+ <tbody>
+  <tr><th scope="row">1. Book your GP</th><td>Ask for a long appointment and say it's about a mental health treatment plan</td><td>Say the words "trichotillomania" or "hair pulling disorder". Many people only ever mention hair loss, and get sent to a dermatologist</td></tr>
+  <tr><th scope="row">2. Get the plan and a referral</th><td>Your GP writes the plan and refers you for up to 6 sessions{cite('sa-medicare')}</td><td>A psychiatrist or paediatrician can also refer{cite('sa-medicare')}. For children, a paediatrician is often the easier door</td></tr>
+  <tr><th scope="row">3. Find the right psychologist</th><td>A clinical or registered psychologist, occupational therapist or social worker can be eligible{cite('sa-medicare')}</td><td>Ask before booking: "Do you use habit reversal training or the ComB model, and have you treated trichotillomania?"</td></tr>
+  <tr><th scope="row">4. Go back for a review</th><td>After your first sessions, your GP can refer you for more, up to 10 individual sessions in the calendar year{cite('sa-medicare')}</td><td>The count resets on 1 January</td></tr>
+ </tbody>
+</table>
+</div>
+
+<h2>What it costs</h2>
+<p>Medicare pays a rebate for each eligible session, and many psychologists charge more than the rebate, so expect a gap fee. It varies
+ a lot between practices, so ask when you book. Some bulk bill, especially for students, concession card holders or children.</p>
+<div class="table-wrap">
+<table>
+ <caption>What Medicare covers under a mental health treatment plan</caption>
+ <tbody>
+  <tr><th scope="row">Individual sessions</th><td>Up to 10 per calendar year{cite('sa-medicare','betteraccess')}</td></tr>
+  <tr><th scope="row">Group sessions</th><td>Up to 10 per calendar year{cite('sa-medicare','betteraccess')}</td></tr>
+  <tr><th scope="row">Per referral</th><td>Up to 6 sessions, then a GP review{cite('sa-medicare')}</td></tr>
+  <tr><th scope="row">Video sessions</th><td>Can be claimed, which helps if you live regionally or remotely{cite('sa-medicare')}</td></tr>
+  <tr><th scope="row">Carers and parents</th><td>Can join up to 2 sessions a year as part of the plan of the person they care for (these count towards the 10){cite('sa-medicare')}</td></tr>
+ </tbody>
+</table>
+</div>
+
+<h2>Finding a psychologist who knows trich</h2>
+<p>BFRB specialists are thin on the ground in Australia, so widen the search:</p>
+<ul>
+ <li><strong>The TLC Foundation directory</strong> at <a href="https://www.bfrb.org">bfrb.org</a> lists clinicians trained in body-focused repetitive behaviours, including some outside the US.{cite('tlc')}</li>
+ <li><strong>The Australian Psychological Society's Find a Psychologist</strong> at <a href="https://www.findapsychologist.org.au">findapsychologist.org.au</a>. Search for "habit reversal", "BFRB" or "OCD and related disorders".</li>
+ <li><strong>Video sessions</strong> mean the right psychologist doesn't have to be in your city.{cite('sa-medicare')}</li>
+ <li>If you can't find a trich specialist, a psychologist experienced with <strong>OCD and related disorders</strong> and habit reversal training is a sound second choice.</li>
+</ul>
+
+<h2>While you wait</h2>
+<p>Waiting lists can run for months. You don't have to wait to start. The <a href="/how-to-stop-pulling-hair">practical guide</a> covers the
+ habit reversal steps you can begin today, and <a href="/">Trich Reset</a> is made for the moments between sessions: guided audio for
+ the urge, a SCAMP trigger map you can take to your first appointment, and logs that show your psychologist your real pattern.
+ Trich Reset is made by Lux Innovations, a small Australian company.</p>
+
+<h2>If you need to talk to someone now</h2>
+<div class="table-wrap">
+<table>
+ <caption>Australian support lines</caption>
+ <tbody>
+  <tr><th scope="row">Lifeline</th><td>13 11 14, 24 hours, crisis support</td></tr>
+  <tr><th scope="row">Beyond Blue</th><td>1300 22 4636, 24 hours, anxiety and low mood</td></tr>
+  <tr><th scope="row">Kids Helpline</th><td>1800 55 1800, 24 hours, for ages 5 to 25</td></tr>
+  <tr><th scope="row">Emergency</th><td>000</td></tr>
+ </tbody>
+</table>
+</div>
+
+{cta('trichotillomania-help-australia', 'Made in Australia', 'Something for the urge, tonight, before your first session.',
+     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
+ [('Does Medicare cover a psychologist for trichotillomania?', 'Yes. With a mental health treatment plan from your GP, Medicare pays a rebate for up to 10 individual and 10 group sessions with an eligible psychologist, occupational therapist or social worker each calendar year. Many practices charge a gap on top.'),
+  ('How do I get a mental health treatment plan?', 'Book a long appointment with your GP and say it is for a mental health treatment plan. Your GP assesses you, writes the plan and refers you for up to 6 sessions, then reviews you and can refer you for more.'),
+  ('How do I find a trichotillomania specialist in Australia?', 'Check the TLC Foundation directory at bfrb.org and the Australian Psychological Society\'s Find a Psychologist. Ask whether they use habit reversal training or the ComB model. Video sessions are claimable, so the psychologist does not have to be local.'),
+  ('Can I see a dermatologist for hair pulling?', 'A dermatologist can rule out other causes of hair loss and help with the skin, but trichotillomania is treated with behaviour therapy, so you will also need a psychologist. Tell your GP it is hair pulling, not only hair loss.')],
+ ['sa-medicare','betteraccess','farhat2020','tlc'])
+
+# 7 -------------------------------------------------------------- children
+page('trichotillomania-in-children',
+ 'Trichotillomania in Children: A Guide for Parents',
+ 'Trichotillomania in children',
+ 'Learn · For parents',
+ 'Is your child pulling out their hair? What trichotillomania looks like at each age, what helps and what makes it worse, and how behaviour therapy helped 75% of children in a trial.',
+ lambda: f'''Trichotillomania often starts in <strong>late childhood or early puberty</strong>,{cite('tlc')} and children respond well to
+ treatment. In a randomised trial of children aged 7 to 17, <strong>75%</strong> responded to eight weeks of behaviour therapy, compared with
+ <strong>0%</strong> in the comparison group, and 7 to 9-year-olds did as well as the older children.{cite('franklin2011')} The most useful
+ thing a parent can be is a calm coach, not the hair police.{cite('tlc2011')}''',
+ lambda: f'''
+<h2>What it looks like at each age</h2>
+<div class="table-wrap">
+<table>
+ <caption>Hair pulling by age, and the parent's role (from the TLC expert guidelines)</caption>
+ <thead><tr><th scope="col">Age</th><th scope="col">What it's like</th><th scope="col">Your role</th></tr></thead>
+ <tbody>
+  <tr><th scope="row">0 to 5 ("baby trich")</th><td>Often pulling while falling asleep, sucking a thumb or being comforted. Very young children often respond very well to treatment{cite('tlc2011')}</td><td>You run it, with a therapist's guidance: you set the routine and the environment{cite('tlc2011')}</td></tr>
+  <tr><th scope="row">6 to 9</th><td>More able to take part and talk about it{cite('tlc2011')}</td><td>A reward system for <em>using strategies</em>, not for "not pulling"{cite('tlc2011')}</td></tr>
+  <tr><th scope="row">10 to 13</th><td>More independent, still needs structure{cite('tlc2011')}</td><td>Let them help design their own plan; rewards still work{cite('tlc2011')}</td></tr>
+  <tr><th scope="row">14 to 18</th><td>Privacy matters a lot, and shame can be intense{cite('tlc2011')}</td><td>Step back. Support, and let the work happen between them and their therapist{cite('tlc2011')}</td></tr>
+ </tbody>
+</table>
+</div>
+
+<h2>What helps, and what makes it worse</h2>
+<div class="table-wrap">
+<table>
+ <caption>For parents: do and don't</caption>
+ <thead><tr><th scope="col">Instead of…</th><th scope="col">Try…</th></tr></thead>
+ <tbody>
+  <tr><td>"Stop it!", or pulling their hand away</td><td>A quiet signal you agreed on together, or handing them their fidget</td></tr>
+  <tr><td>Punishing or taking things away after pulling</td><td>Praising the moments they used a strategy. Shame tends to feed the cycle</td></tr>
+  <tr><td>Checking their head or counting hairs</td><td>Asking, once a week and calmly, how their plan is going</td></tr>
+  <tr><td>Telling them to just use willpower</td><td>Changing the setup: hair tied back or a beanie at bedtime, a fidget at homework time, gloves for screen time</td></tr>
+  <tr><td>Keeping it a family secret</td><td>Naming it plainly: "It's called trichotillomania. Lots of kids have it, and it can get better."</td></tr>
+ </tbody>
+</table>
+</div>
+<p>These follow habit reversal training, the best-evidenced treatment,{cite('farhat2020')} which the children's trial adapted for kids.{cite('franklin2011')}
+ The <a href="/how-to-stop-pulling-hair">practical guide</a> explains each step, and the trigger table there works well as a family worksheet.</p>
+
+<h2>One thing to watch for</h2>
+<p>Some children chew or swallow the hair they pull. Over time this can form a hairball in the stomach (a trichobezoar), which may need
+ surgery.{cite('tlc')} If your child eats hair and has stomach pain, nausea, vomiting or a poor appetite, see a doctor.</p>
+
+<h2>Getting help</h2>
+<p>Start with your GP or paediatrician, and say "trichotillomania". Ask for a psychologist experienced with children and habit reversal
+ training. In Australia, Medicare rebates up to 10 sessions a year with a mental health treatment plan, and a paediatrician can refer.
+ Parents can join sessions as part of their child's plan.{cite('sa-medicare')} See <a href="/trichotillomania-help-australia">trichotillomania
+ help in Australia</a> for the steps, and the TLC Foundation directory at <a href="https://www.bfrb.org">bfrb.org</a> to find a BFRB-trained clinician.</p>
+
+<h2>Where Trich Reset fits</h2>
+<p><a href="/">Trich Reset</a> is made for teenagers and adults. For an older child, it gives them something private to press play on
+ when the urge hits, without a parent watching. For a younger child, it is a good way for <em>you</em> to understand trich: the SCAMP
+ lessons explain why pulling happens and which tools fit which triggers.</p>
+
+{cta('trichotillomania-in-children', 'For you, or for your teen', 'Hear what Trich Reset sounds like.', FREE)}''',
+ [('Why is my child pulling out their hair?', 'Hair pulling in children is usually linked to soothing, boredom, tiredness or stress, and often happens while falling asleep, reading or watching a screen. When it is repeated and hard to stop, it may be trichotillomania, which commonly starts in late childhood or early puberty.'),
+  ('Will my child grow out of trichotillomania?', 'Some very young children ("baby trich") do, but many do not without help. The good news is that children respond well to behaviour therapy: in one trial, 75% of children aged 7 to 17 responded after eight weeks.'),
+  ('Should I tell my child to stop pulling?', 'Telling them to stop, punishing or checking their hair tends to add shame, which can make pulling worse. Agree a quiet signal together, praise them for using strategies, and change the setup, such as tying hair back at bedtime.'),
+  ('What kind of doctor treats trichotillomania in children?', 'Start with your GP or paediatrician. Treatment is behaviour therapy with a psychologist, ideally one experienced with children and habit reversal training. The TLC Foundation lists BFRB clinicians at bfrb.org.')],
+ ['tlc','franklin2011','tlc2011','farhat2020','sa-medicare'])
+
 # ------------------------------------------------------------- templates
 NAV = '''<header class="nav dark-zone" id="nav">
   <div class="container nav-inner">
@@ -455,7 +605,7 @@ NAV = '''<header class="nav dark-zone" id="nav">
 FOOT = '''<footer class="learn-foot dark-zone">
   <div class="container">
     <p><strong>Learn:</strong> {links}</p>
-    <p><a href="/">Trich Reset</a> · <a href="/privacy">Privacy</a> · <a href="mailto:info@luxinnovations.com.au">info@luxinnovations.com.au</a></p>
+    <p><a href="/">Trich Reset</a> · <a href="/privacy">Privacy</a> · <a href="mailto:trichreset@gmail.com">trichreset@gmail.com</a></p>
     <p class="muted">© 2026 Trich Reset, made by Lux Innovations.</p>
   </div>
 </footer>'''
@@ -507,8 +657,11 @@ IMAGES = {
     'trichotillomania-apps': ('assets/img/app/screen-4', 'Trich Reset app screen: the Listen tab with urge resets, sleep and grounding tracks', 'phone'),
     'trichotillomania-and-adhd': ('assets/img/learn/adhd', 'A study desk at night: open laptop and textbook, a cup of tea, and a hand turning a fidget cube instead of reaching for hair', 'art'),
     'how-to-stop-pulling-hair': ('assets/img/learn/how-to-stop-v2', 'A bathroom mirror covered with a towel, with a scrunchie and fidget spinner on the sink', 'art'),
+    'trichotillomania-help-australia': ('assets/img/learn/australia', 'A kitchen table in morning light with a phone, a notepad of tick boxes ready for a GP appointment, and a sprig of eucalyptus', 'art'),
+    'trichotillomania-in-children': ('assets/img/learn/children', "A child's hand holding a soft fidget toy on a duvet, with a parent's hand resting gently beside it", 'art'),
 }
-HUB_ORDER = ['what-is-trichotillomania', 'how-to-stop-pulling-hair', 'trichotillomania-apps', 'trichotillomania-and-adhd', 'trichotillomania-treatment']
+HUB_ORDER = ['what-is-trichotillomania', 'how-to-stop-pulling-hair', 'trichotillomania-in-children', 'trichotillomania-help-australia',
+             'trichotillomania-apps', 'trichotillomania-and-adhd', 'trichotillomania-treatment']
 HUB_IMAGE = ('assets/img/learn/hub-v2', 'A trichotillomania toolkit: fidget ring, stress ball, beanie, cotton gloves, scrunchie, worry stone, hairbrush and phone', 'art')
 
 def figure(img, eager=False):
@@ -579,7 +732,7 @@ def render_hub():
       {figure(IMAGES[p['slug']])}</li>''' for p in sorted(PAGES, key=lambda p: HUB_ORDER.index(p['slug'])))
     schema = schema_tags([{'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'Learn about trichotillomania',
         'url': url, 'publisher': PUBLISHER, 'hasPart': [{'@type': 'Article', 'headline': p['h1'], 'url': f"{SITE}/{p['slug']}"} for p in PAGES]}])
-    desc = 'Plain-English, research-sourced guides to trichotillomania: what it is, how to stop pulling, apps compared, ADHD and trich, and treatments compared.'
+    desc = 'Plain-English, research-sourced guides to trichotillomania: what it is, how to stop pulling, trich in children, help in Australia, apps compared, ADHD and trich, and treatments compared.'
     out = HEAD.format(title='Learn About Trichotillomania: Research-Sourced Guides | Trich Reset', desc=desc, url=url, schema=schema)
     out += NAV.format(play=PLAY.format(slug='learn'))
     out += f'''
