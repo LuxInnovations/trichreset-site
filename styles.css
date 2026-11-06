@@ -788,3 +788,40 @@
 @media (max-width: 800px) { .protocol-top { flex-direction: column; align-items: flex-start; } .protocol-art { flex-basis: auto; width: 180px; } }
 .hero h1 span .hl { display: inline; }
 .feature-copy strong, .lede strong, .listen-after strong { font-weight: 600; color: var(--text-primary); }
+
+/* ------------------------------------------------------- iPhone list form
+   Built by script.js. Inputs stay at 16px or larger, or iPhone Safari zooms the page on focus. */
+.waitlist {
+  flex-basis: 100%; width: 100%; max-width: 440px;
+  display: flex; flex-direction: column; gap: var(--space-md);
+  margin-top: var(--space-md); text-align: left;
+}
+.footer-inner .waitlist { margin-left: auto; margin-right: auto; }
+.waitlist label { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.waitlist input[type="email"] {
+  width: 100%; min-height: 52px; padding: 12px 16px;
+  font: inherit; font-size: 17px; color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong); border-radius: var(--radius-md);
+}
+.waitlist input[type="email"]:focus-visible { outline: 2px solid var(--mauve-primary); outline-offset: 2px; }
+.waitlist .btn { width: 100%; }
+.waitlist .btn:disabled { opacity: .7; cursor: default; }
+/* The FAQ form sits inside .qa, whose button rule would strip the pill. */
+.qa .waitlist .btn {
+  justify-content: center; text-align: center;
+  padding: 12px 28px; font-family: var(--font-body); font-size: 15px;
+  background: var(--blue-deep); color: #FFFFFF;
+}
+.qa .waitlist .btn:hover { background: var(--blue-primary); color: #FFFFFF; }
+.waitlist-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.waitlist-fine { font-size: 14px; color: var(--text-secondary); margin: 0; }
+.waitlist-msg { font-size: 15px; color: var(--text-primary); margin: 0; }
+.waitlist-msg:empty { display: none; }
+.waitlist-done {
+  flex-basis: 100%; max-width: 440px; margin: var(--space-md) 0 0; padding: 16px;
+  font-size: 17px; color: var(--text-primary); text-align: left;
+  background: var(--bg-surface); border: 1px solid var(--border-mauve); border-radius: var(--radius-md);
+}
+.footer-inner .waitlist-done { margin-left: auto; margin-right: auto; }
+.waitlist-done:focus { outline: none; }

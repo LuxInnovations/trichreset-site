@@ -11,13 +11,158 @@
 
   /* ------------------------------------------------- store links
      There is no iPhone app yet, so on iPhone and iPad a Play link is a dead end.
-     Those buttons become a way to hear when it's ready. The nav button goes to
+     Those buttons open the iPhone list form below. The nav button goes to
      the free meditation, which does play on iPhone. */
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPad|iPod/.test(ua) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var playLinks = document.querySelectorAll('a[href*="play.google.com/store/apps"]');
   var IOS_LIST = 'mailto:trichreset@gmail.com?subject=iPhone%20list&body=Please%20email%20me%20when%20Trich%20Reset%20is%20on%20iPhone.';
+
+  /* ------------------------------------------------- iPhone list form
+     Writes to the insert-only ios_waitlist table. The anon key is public by
+     design (the app ships it too); row-level security is what protects the list.
+     Whatever goes wrong, the person gets the mailto link instead. */
+  var SUPABASE_URL = 'https://crphixuxwfecypcukxia.supabase.co';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNycGhpeHV4d2ZlY3lwY3VreGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTE4MjYsImV4cCI6MjA5NTA4NzgyNn0.ssaSEYksU4KGAzIC9rlIAF-gQWDPBCzl63uUPEbPMUQ';
+  var LIST_LABEL = 'Tell me when it\u2019s on iPhone';
+  var formCount = 0;
+
+  function listSource() {
+    var src = (new URLSearchParams(location.search).get('utm_source') || '').toLowerCase();
+    return /^[a-z0-9_.-]{1,40}$/.test(src) ? src : null;
+  }
+
+  function buildListForm(buttonClass) {
+    var id = 'iphone-email-' + (++formCount);
+    var form = document.createElement('form');
+    form.className = 'waitlist';
+    form.noValidate = true;
+
+    var label = document.createElement('label');
+    label.htmlFor = id;
+    label.textContent = 'Your email';
+
+    var input = document.createElement('input');
+    input.id = id;
+    input.type = 'email';
+    input.name = 'email';
+    input.required = true;
+    input.maxLength = 254;
+    input.autocomplete = 'email';
+    input.setAttribute('autocapitalize', 'off');
+    input.setAttribute('autocorrect', 'off');
+    input.spellcheck = false;
+
+    /* Hidden from people. A bot that fills it gets a success message and nothing is sent. */
+    var trap = document.createElement('input');
+    trap.className = 'waitlist-trap';
+    trap.type = 'text';
+    trap.name = 'website';
+    trap.tabIndex = -1;
+    trap.autocomplete = 'off';
+    trap.setAttribute('aria-hidden', 'true');
+
+    var button = document.createElement('button');
+    button.type = 'submit';
+    button.className = buttonClass;
+    button.textContent = LIST_LABEL;
+
+    var fine = document.createElement('p');
+    fine.className = 'waitlist-fine';
+    fine.append('One email when it\u2019s ready, then we delete your address. ');
+    var privacy = document.createElement('a');
+    privacy.href = '/privacy';
+    privacy.textContent = 'Privacy';
+    fine.append(privacy);
+
+    var msg = document.createElement('p');
+    msg.className = 'waitlist-msg';
+    msg.setAttribute('role', 'status');
+
+    form.append(label, input, trap, button, fine, msg);
+
+    function joined() {
+      var done = document.createElement('p');
+      done.className = 'waitlist-done';
+      done.setAttribute('role', 'status');
+      done.tabIndex = -1;
+      done.textContent = 'You\u2019re on the list. We\u2019ll email you once, when it\u2019s on iPhone.';
+      form.replaceWith(done);
+      done.focus();
+    }
+
+    function failed() {
+      button.disabled = false;
+      button.textContent = LIST_LABEL;
+      msg.textContent = 'That didn\u2019t go through. ';
+      var mail = document.createElement('a');
+      mail.href = IOS_LIST;
+      mail.textContent = 'Email us instead';
+      msg.append(mail, ' and we\u2019ll add you.');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (button.disabled) return;
+      if (trap.value) { joined(); return; }
+
+      var email = input.value.trim();
+      if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.textContent = 'That email doesn\u2019t look right. Check it and try again.';
+        input.focus();
+        return;
+      }
+
+      msg.textContent = '';
+      button.disabled = true;
+      button.textContent = 'Sending\u2026';
+
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 10000);
+      fetch(SUPABASE_URL + '/rest/v1/ios_waitlist', {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify({ email: email, source: listSource() }),
+        signal: controller.signal
+      }).then(function (res) {
+        /* 409 is two people sending one address in the same instant: they're on the list. */
+        if (res.ok || res.status === 409) joined(); else failed();
+      }).catch(failed).then(function () {
+        clearTimeout(timer);
+      });
+    });
+
+    return { form: form, input: input };
+  }
+
+  /* Swaps a button for the form, or adds the form under a link in a sentence.
+     Until then the link's own mailto works, so a script failure loses nobody. */
+  function wireListLink(a) {
+    a.href = IOS_LIST;
+    if (!window.fetch || !window.AbortController) return;
+    var isButton = a.classList.contains('btn');
+    var built = null;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (!built) {
+        var buttonClass = isButton ? a.className.replace(/\bbtn-(ghost|lg)\b/g, '').trim() : 'btn btn-primary';
+        if (a.classList.contains('btn-ghost')) buttonClass += ' btn-primary';
+        built = buildListForm(buttonClass.replace(/\s+/g, ' '));
+        if (isButton) a.replaceWith(built.form);
+        else a.closest('p').after(built.form);
+      }
+      built.input.focus();
+    });
+  }
+
+  document.querySelectorAll('a[data-iphone-list]').forEach(wireListLink);
+
   if (isIOS) {
     document.querySelectorAll('[data-ios-text]').forEach(function (el) {
       el.textContent = el.getAttribute('data-ios-text');
@@ -27,8 +172,8 @@
         a.href = document.getElementById('listen') ? '#listen' : '/#listen';
         a.textContent = 'Hear one free';
       } else {
-        a.href = IOS_LIST;
-        a.textContent = 'Tell me when it\u2019s on iPhone';
+        a.textContent = LIST_LABEL;
+        wireListLink(a);
       }
     });
   } else {
