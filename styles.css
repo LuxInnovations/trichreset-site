@@ -664,6 +664,7 @@
   border-left: 2px solid var(--mauve-primary);
 }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.hero-fine { margin: var(--space-md) 0 0; max-width: 46ch; font-size: var(--web-small); color: var(--text-secondary); }
 .hero-proof { margin: var(--space-xl) 0 0; max-width: 46ch; }
 .hero-proof p { font-size: 17px; line-height: 1.55; color: var(--text-primary); font-style: italic; }
 .hero-proof footer { margin-top: var(--space-sm); font-size: var(--web-small); color: var(--text-muted); }
@@ -687,6 +688,8 @@
   color: var(--text-secondary);
 }
 .listen-after a { display: inline-block; margin-top: var(--space-sm); color: var(--link-color); font-weight: 500; }
+
+.listen-cta { margin-top: var(--space-base); }
 
 /* ---------------------------------------------------- the full library */
 .lib-count {

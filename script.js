@@ -9,6 +9,42 @@
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
+  /* ------------------------------------------------- store links
+     There is no iPhone app yet, so on iPhone and iPad a Play link is a dead end.
+     Those buttons become a way to hear when it's ready. The nav button goes to
+     the free meditation, which does play on iPhone. */
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/.test(ua) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var playLinks = document.querySelectorAll('a[href*="play.google.com/store/apps"]');
+  var IOS_LIST = 'mailto:trichreset@gmail.com?subject=iPhone%20list&body=Please%20email%20me%20when%20Trich%20Reset%20is%20on%20iPhone.';
+  if (isIOS) {
+    document.querySelectorAll('[data-ios-text]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-ios-text');
+    });
+    playLinks.forEach(function (a) {
+      if (a.classList.contains('nav-cta')) {
+        a.href = document.getElementById('listen') ? '#listen' : '/#listen';
+        a.textContent = 'Hear one free';
+      } else {
+        a.href = IOS_LIST;
+        a.textContent = 'Tell me when it\u2019s on iPhone';
+      }
+    });
+  } else {
+    /* trichreset.com/?utm_source=instagram carries through to Play, so Play Console's
+       acquisition report can tell Instagram from TikTok. */
+    var src = new URLSearchParams(location.search).get('utm_source');
+    if (src) {
+      playLinks.forEach(function (a) {
+        var u = new URL(a.href);
+        u.searchParams.set('utm_source', src);
+        u.searchParams.set('utm_medium', 'social');
+        a.href = u.toString();
+      });
+    }
+  }
+
   /* ------------------------------------------------- sticky nav hairline */
   var nav = document.getElementById('nav');
   if (nav) {
@@ -99,7 +135,7 @@
     btn.setAttribute('aria-label', 'Play the meditation Boredom and the Body');
     scrub.value = 0;
     tCur.textContent = '0:00';
-    hint.textContent = 'That was one of eight. The rest are in the app.';
+    hint.textContent = isIOS ? 'That was one. The rest are in the app, coming soon to iPhone.' : 'That was one. The rest are in the app, 7 days free.';
   });
 
   audio.addEventListener('loadedmetadata', function () {

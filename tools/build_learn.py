@@ -9,8 +9,8 @@ import html, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = 'https://trichreset.com'
-UPDATED = '2026-10-18'
-UPDATED_TEXT = '18 October 2026'
+UPDATED = '2026-11-07'
+UPDATED_TEXT = '7 November 2026'
 PLAY = ('https://play.google.com/store/apps/details?id=trichreset.com'
         '&amp;utm_source=trichreset.com&amp;utm_medium=web&amp;utm_campaign=learn&amp;utm_content={slug}')
 
@@ -63,7 +63,7 @@ def cta(slug, label, h, body):
  <p class="label">{label}</p>
  <h2>{h}</h2>
  <p>{body}</p>
- <p class="cta-row"><a class="btn btn-accent" href="/#listen">Play it free</a> <a class="btn btn-ghost" href="{PLAY.format(slug=slug)}">Get it on Google Play</a></p>
+ <p class="cta-row"><a class="btn btn-accent" href="/#listen">Play it free</a> <a class="btn btn-ghost" href="{PLAY.format(slug=slug)}">Try 7 days free on Google Play</a></p>
 </div>
 '''
 
@@ -156,7 +156,7 @@ page('what-is-trichotillomania',
  If you swallow hair and have stomach pain, nausea or vomiting, see a doctor.</p>
 
 {cta('what-is-trichotillomania', 'Understanding is step one', 'Then you need something for the urge.',
-     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
+     'Trich Reset has guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
  [('How common is trichotillomania?', 'A 2020 survey of more than 10,000 US adults found 1.7% currently had trichotillomania, with similar rates in men and women (Grant, Dougherty and Chamberlain, Psychiatry Research, 2020).'),
   ('Is trichotillomania a form of OCD?', 'It is grouped with obsessive-compulsive and related disorders in the DSM-5, but it is its own condition. Pulling is often driven by sensation, tension or emotion rather than obsessive thoughts, and in ICD-11 it sits among the body-focused repetitive behaviour disorders.'),
   ('Can trichotillomania go away on its own?', 'For some people it eases with time, but for many it continues into adulthood. Behaviour therapy with habit reversal training has the strongest evidence for reducing pulling.'),
@@ -234,7 +234,7 @@ page('trichotillomania-apps',
  'Learn · Apps',
  'Most trich apps help you count your pulling. One is built to get you through the urge. A sourced side-by-side of Trich Reset, TrichStop, SkinAware and HabitAware Keen2.',
  lambda: f'''Most trichotillomania apps help you <strong>count</strong> your pulling. Trich Reset is built to get you
- <strong>through the urge itself</strong>: 21 guided meditations, hypnosis and sleep tracks made only for hair pulling, plus the
+ <strong>through the urge itself</strong>: guided meditations, hypnosis and sleep tracks made only for hair pulling, plus the
  SCAMP trigger map that BFRB specialists use. Here's how it stacks up against TrichStop, SkinAware and HabitAware Keen2. We make
  Trich Reset, so every claim about the other apps links to a source you can check.{cite('skinaware')}''',
  lambda: f'''
@@ -246,12 +246,12 @@ page('trichotillomania-apps',
  <tbody>
   <tr><th scope="row">Built for</th><td><strong>Getting through the urge.</strong> Guided audio for the moment your hand starts moving, plus a trigger map, tracking and lessons</td><td>A weekly online program with a therapist</td><td>Logging, with a habit reversal course written in general BFRB language rather than for pulling{cite('skinaware')}</td><td>A bracelet that vibrates when your hand moves to your hair</td></tr>
   <tr><th scope="row">Made only for hair pulling</th><td><strong>Yes.</strong> Every track and lesson</td><td>Yes</td><td>No. Also covers skin picking and other BFRBs{cite('skinaware')}</td><td>No. Also used for skin picking and nail biting</td></tr>
-  <tr><th scope="row">Guided audio</th><td><strong>21 tracks, over six hours.</strong> Urge resets from 4 minutes, protocols, hypnosis, affirmations, sleep up to 60 minutes. New tracks monthly</td><td>Mindfulness exercises{cite('skinaware')}</td><td>Breathing and urge-surfing tools{cite('skinaware')}</td><td>Not a focus</td></tr>
+  <tr><th scope="row">Guided audio</th><td><strong>Over six hours and growing.</strong> Urge resets from 4 minutes, protocols, hypnosis, affirmations, sleep up to 60 minutes. New tracks weekly</td><td>Mindfulness exercises{cite('skinaware')}</td><td>Breathing and urge-surfing tools{cite('skinaware')}</td><td>Not a focus</td></tr>
   <tr><th scope="row">Hypnosis and sleep tracks</th><td><strong>Yes</strong></td><td>Not listed{cite('skinaware')}</td><td>Not listed{cite('skinaware')}</td><td>Not listed{cite('skinaware')}</td></tr>
   <tr><th scope="row">Find your triggers</th><td><strong>SCAMP profile questionnaire</strong> (ComB model) across 5 trigger areas</td><td>Worked through with your therapist</td><td>From your logs</td><td>Detects the hand movement</td></tr>
   <tr><th scope="row">Education</th><td>3 modules, 17 lessons written for hair pulling</td><td>Structured program</td><td>3-module HRT course</td><td>Course sold separately{cite('skinaware')}</td></tr>
   <tr><th scope="row">Tracking</th><td>Urge and pull logs, check-ins, recovery-aware streaks, private regrowth photos</td><td>Self-monitoring</td><td>Detailed logging, widgets</td><td>Automatic + manual</td></tr>
-  <tr><th scope="row">Price</th><td><strong>A$199.99/year</strong> (early bird), A$249.99/year or A$26.99/month</td><td>US$60–90 per week{cite('skinaware')}, which is US$3,120 or more over a year</td><td>Free core; premium US$5.99/month or US$34.99/year{cite('skinaware')}</td><td>US$169 bracelet; HRT content extra{cite('skinaware')}</td></tr>
+  <tr><th scope="row">Price</th><td><strong>7 days free, then A$199.99/year</strong> (US$139.99, early bird), A$249.99/year or A$26.99/month</td><td>US$60–90 per week{cite('skinaware')}, which is US$3,120 or more over a year</td><td>Free core; premium US$5.99/month or US$34.99/year{cite('skinaware')}</td><td>US$169 bracelet; HRT content extra{cite('skinaware')}</td></tr>
   <tr><th scope="row">Free option</th><td>One full meditation free on <a href="/#listen">trichreset.com</a></td><td>No free tier{cite('skinaware')}</td><td>Yes, core logging</td><td>App logging free</td></tr>
   <tr><th scope="row">Real therapist</th><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
   <tr><th scope="row">Detects pulling automatically</th><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
@@ -437,7 +437,7 @@ page('trichotillomania-and-adhd',
  other. If you are in crisis in Australia, call Lifeline on 13 11 14.</p>
 
 {cta('trichotillomania-and-adhd', 'Short, guided, hands-free', "Something for the urge that you don't have to remember.",
-     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
+     'Trich Reset has guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
  [('Is trichotillomania a symptom of ADHD?', 'No. Trichotillomania is a separate condition, a body-focused repetitive behaviour. The two often occur together: in one study of 308 adults with trichotillomania, 15.3% also met the threshold for ADHD.'),
   ('How common is ADHD in people with trichotillomania?', 'Studies range from about 15% (a 2022 clinical study of 308 adults) to 29% (a 2020 US survey), compared with about 2.5% of adults in general.'),
   ('Does ADHD make hair pulling worse?', 'People with both conditions tend to be more impulsive, but a 2022 study found their pulling was not more severe, and their quality of life was no lower, than people with trichotillomania alone.'),
@@ -515,7 +515,7 @@ page('trichotillomania-help-australia',
 </div>
 
 {cta('trichotillomania-help-australia', 'Made in Australia', 'Something for the urge, tonight, before your first session.',
-     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
+     'Trich Reset has guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
  [('Does Medicare cover a psychologist for trichotillomania?', 'Yes. With a mental health treatment plan from your GP, Medicare pays a rebate for up to 10 individual and 10 group sessions with an eligible psychologist, occupational therapist or social worker each calendar year. Many practices charge a gap on top.'),
   ('How do I get a mental health treatment plan?', 'Book a long appointment with your GP and say it is for a mental health treatment plan. Your GP assesses you, writes the plan and refers you for up to 6 sessions, then reviews you and can refer you for more.'),
   ('How do I find a trichotillomania specialist in Australia?', 'Check the TLC Foundation directory at bfrb.org and the Australian Psychological Society\'s Find a Psychologist. Ask whether they use habit reversal training or the ComB model. Video sessions are claimable, so the psychologist does not have to be local.'),
@@ -598,7 +598,7 @@ NAV = '''<header class="nav dark-zone" id="nav">
       <a href="/learn">Learn</a>
       <a href="/#pricing">Pricing</a>
     </nav>
-    <a class="btn btn-primary nav-cta" href="{play}">Get Trich Reset on Google Play</a>
+    <a class="btn btn-primary nav-cta" href="{play}">Start 7 days free</a>
   </div>
 </header>'''
 
@@ -718,6 +718,7 @@ def render(p):
  </article>
 </main>
 {foot()}
+<script src="/script.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
@@ -749,10 +750,11 @@ def render_hub():
  <div class="container">
   <ul class="hub">{cards}</ul>
 {cta('learn', 'Reading is step one', 'Now hear what the app sounds like.',
-     'Trich Reset has 21 guided meditations, hypnosis and sleep tracks made only for hair pulling, plus the SCAMP lessons these guides draw on. ' + FREE)}
+     'Trich Reset has guided meditations, hypnosis and sleep tracks made only for hair pulling, plus the SCAMP lessons these guides draw on. ' + FREE)}
  </div>
 </main>
 {foot()}
+<script src="/script.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
@@ -760,7 +762,7 @@ def render_hub():
     (ROOT / 'learn.html').write_text(out, encoding='utf-8', newline='\n')
 
 def render_sitemap():
-    urls = ['', 'learn'] + [p['slug'] for p in PAGES] + ['privacy', 'delete-account']
+    urls = ['', 'learn'] + [p['slug'] for p in PAGES] + ['privacy', 'delete-account', 'terms']
     body = ''.join(f'  <url><loc>{SITE}/{u}</loc><lastmod>{UPDATED}</lastmod></url>\n' for u in urls)
     (ROOT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
