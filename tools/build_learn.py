@@ -18,8 +18,8 @@ PLAY = ('https://play.google.com/store/apps/details?id=trichreset.com'
 S = {
  'grant2020': ('Grant JE, Dougherty DD, Chamberlain SR. Prevalence, gender correlates, and co-morbidity of trichotillomania. <em>Psychiatry Research</em>. 2020;288:112948.',
                'https://pmc.ncbi.nlm.nih.gov/articles/PMC7212053/'),
- 'tlc':       ('The TLC Foundation for Body-Focused Repetitive Behaviors. Hair pulling (trichotillomania).',
-               'https://www.bfrb.org/hair-pulling'),
+ 'iocdf':     ('International OCD Foundation. Body-focused repetitive behaviors.',
+               'https://iocdf.org/about-ocd/related-disorders/body-focused-repetitive-behaviors/'),
  'farhat2020':('Farhat LC, Olfson E, Nasir M, et al. Pharmacological and behavioral treatment for trichotillomania: an updated systematic review with meta-analysis. <em>Depression and Anxiety</em>. 2020;37(8):715-727.',
                'https://onlinelibrary.wiley.com/doi/10.1002/da.23028'),
  'mcguire2014':('McGuire JF, Ung D, Selles RR, et al. Treating trichotillomania: a meta-analysis of treatment effects and moderators for behavior therapy and serotonin reuptake inhibitors. <em>Journal of Psychiatric Research</em>. 2014;58:76-83.',
@@ -50,7 +50,7 @@ S = {
                'https://www.health.gov.au/our-work/better-access-initiative'),
  'franklin2011': ('Franklin ME, Edson AL, Ledley DA, Cahill SP. Behavior therapy for pediatric trichotillomania: a randomized controlled trial. <em>Journal of the American Academy of Child and Adolescent Psychiatry</em>. 2011;50(8):763-771.',
                'https://pmc.ncbi.nlm.nih.gov/articles/PMC3143367/'),
- 'tlc2011':   ('Scientific Advisory Board of the Trichotillomania Learning Center (now the TLC Foundation for BFRBs). <em>Expert Consensus Treatment Guidelines for Trichotillomania, Skin Picking and Other Body-Focused Repetitive Behaviors</em>. 2011.',
+ 'tlc2011':   ('Scientific Advisory Board of the Trichotillomania Learning Center (later the TLC Foundation for BFRBs). <em>Expert Consensus Treatment Guidelines for Trichotillomania, Skin Picking and Other Body-Focused Repetitive Behaviors</em>. 2011.',
                'https://arfamiliesfirst.com/wp-content/uploads/2016/05/Trichotillomania-ExpertGuidelines_000.pdf'),
 }
 
@@ -96,10 +96,10 @@ page('what-is-trichotillomania',
  <tbody>
   <tr><th scope="row">Other names</th><td>Hair pulling disorder, trich, TTM</td></tr>
   <tr><th scope="row">Classification</th><td>Obsessive-compulsive and related disorders (DSM-5){cite('apa2013')}; body-focused repetitive behaviour disorders (ICD-11, 6B25.0){cite('icd11')}</td></tr>
-  <tr><th scope="row">How common</th><td>1.7% point prevalence in US adults aged 18 to 69{cite('grant2020')}; community estimates range from 0.5% to 2%{cite('grant2020')}. About 1 to 2 in 50 people in their lifetime{cite('tlc')}</td></tr>
-  <tr><th scope="row">Who</th><td>Equal in boys and girls in childhood; 80 to 90% of reported adult cases are women{cite('tlc')}. A 2020 community survey found 1.8% of men and 1.7% of women{cite('grant2020')}, which suggests men are under-represented in clinics</td></tr>
-  <tr><th scope="row">Typical onset</th><td>Late childhood or early puberty{cite('tlc')}</td></tr>
-  <tr><th scope="row">Common sites</th><td>Scalp, eyebrows, eyelashes, and any body hair{cite('tlc')}</td></tr>
+  <tr><th scope="row">How common</th><td>1.7% point prevalence in US adults aged 18 to 69{cite('grant2020')}; community estimates range from 0.5% to 2%{cite('grant2020')}. Lifetime prevalence is estimated at 1.1% to 1.7%{cite('iocdf')}</td></tr>
+  <tr><th scope="row">Who</th><td>By adulthood, 80 to 90% of reported cases are women{cite('iocdf')}. A 2020 community survey found 1.8% of men and 1.7% of women{cite('grant2020')}, which suggests men are under-represented in clinics</td></tr>
+  <tr><th scope="row">Typical onset</th><td>Late childhood or early puberty{cite('iocdf')}</td></tr>
+  <tr><th scope="row">Common sites</th><td>Most often the scalp or eyebrows; eyelashes and other body hair can be affected too{cite('iocdf')}</td></tr>
   <tr><th scope="row">Best-evidenced treatment</th><td>Behaviour therapy with habit reversal training{cite('farhat2020','mcguire2014')}. See <a href="/trichotillomania-treatment">treatments compared</a></td></tr>
  </tbody>
 </table>
@@ -152,7 +152,7 @@ page('what-is-trichotillomania',
 
 <h2>Is trichotillomania dangerous?</h2>
 <p>It is usually not physically dangerous, but it can cause patchy hair loss, skin irritation and a lot of shame. One rare but serious risk:
- people who swallow pulled hair can develop a hairball in the stomach or intestines (a trichobezoar), which may need surgery.{cite('tlc')}
+ people who swallow pulled hair can develop a hairball in the stomach or intestines (a trichobezoar), which may need surgery.{cite('iocdf')}
  If you swallow hair and have stomach pain, nausea or vomiting, see a doctor.</p>
 
 {cta('what-is-trichotillomania', 'Understanding is step one', 'Then you need something for the urge.',
@@ -161,7 +161,7 @@ page('what-is-trichotillomania',
   ('Is trichotillomania a form of OCD?', 'It is grouped with obsessive-compulsive and related disorders in the DSM-5, but it is its own condition. Pulling is often driven by sensation, tension or emotion rather than obsessive thoughts, and in ICD-11 it sits among the body-focused repetitive behaviour disorders.'),
   ('Can trichotillomania go away on its own?', 'For some people it eases with time, but for many it continues into adulthood. Behaviour therapy with habit reversal training has the strongest evidence for reducing pulling.'),
   ('Will my hair grow back?', 'In most cases, yes. Hair usually regrows once pulling stops, although regrowth can take months, and repeated pulling from the same follicle over many years can sometimes damage it.')],
- ['apa2013','icd11','grant2020','tlc','flessner2008','mansueto1997','farhat2020','mcguire2014'])
+ ['apa2013','icd11','grant2020','iocdf','flessner2008','mansueto1997','farhat2020','mcguire2014'])
 
 # 2 ------------------------------------------------------------- treatments
 page('trichotillomania-treatment',
@@ -224,7 +224,7 @@ page('trichotillomania-treatment',
  [('What is the most effective treatment for trichotillomania?', 'Behaviour therapy built around habit reversal training (HRT). A 2020 meta-analysis of 24 randomised trials found a large benefit for HRT-based therapy compared with control conditions (Farhat et al., Depression and Anxiety, 2020).'),
   ('Is there medication for trichotillomania?', 'Some medicines and supplements have been studied, with mixed results, and none is approved specifically for trichotillomania. A GP or psychiatrist can talk through whether anything is right for you. Behaviour therapy has the strongest evidence.'),
   ('Can an app help with trichotillomania?', 'An app is not a replacement for therapy, but it can help you practise the same skills between sessions or while you wait for one: noticing urges, riding them out and tracking your triggers. Trich Reset adds guided audio for the moment the urge arrives.'),
-  ('How do I find a trichotillomania therapist?', 'The TLC Foundation for Body-Focused Repetitive Behaviors keeps a directory of clinicians trained in BFRBs at bfrb.org. Ask any therapist whether they use habit reversal training or the ComB model.')],
+  ('How do I find a trichotillomania therapist?', 'The International OCD Foundation, which carries on the work of the former TLC Foundation for BFRBs, keeps a directory of therapists who treat BFRBs at iocdf.org/find-help. Ask any therapist whether they use habit reversal training or the ComB model.')],
  ['farhat2020','mcguire2014','azrin1973','mansueto1997','woods2006'])
 
 # 3 ------------------------------------------------------------------ apps
@@ -292,7 +292,7 @@ page('trichotillomania-apps',
  [('What is the best app for trichotillomania?', 'It depends on what you need. For help in the moment the urge hits, Trich Reset: it is the only app in this comparison with a full guided audio library made for hair pulling, including hypnosis and sleep tracks. TrichStop connects you with a specialist therapist (about US$60–90 a week). HabitAware Keen2 is a bracelet that detects automatic pulling. SkinAware offers detailed logging and a habit reversal course with a free tier.'),
   ('Is there a free app for hair pulling?', 'SkinAware has a free core logging tier, and the HabitAware app is free for manual logging. Trich Reset lets you hear a full ten-minute meditation free on its website, no signup. Fully featured apps generally need a subscription.'),
   ('Do trichotillomania apps work?', 'Most apps use principles from habit reversal training, which has strong evidence as a therapy. Few apps have been tested in their own clinical trials, so treat any app as support rather than treatment.'),
-  ('Is Trich Reset on iPhone?', 'Not yet. Trich Reset is on Android through Google Play, with iOS planned.')],
+  ('Is Trich Reset on iPhone?', 'Android only for now. iPhone is coming soon. Leave your email on trichreset.com and we\'ll tell you when it\'s ready.')],
  ['skinaware'])
 
 # 4 ---------------------------------------------------------------- how-to
@@ -350,8 +350,7 @@ page('how-to-stop-pulling-hair',
 
 <h2>When to get professional help</h2>
 <p>If pulling is causing noticeable hair loss, affecting your work, school or relationships, or you feel low or hopeless, see a doctor or
- psychologist. A therapist trained in habit reversal training or the ComB model gives you the best-evidenced help. The TLC Foundation
- lists BFRB clinicians at <a href="https://www.bfrb.org">bfrb.org</a>. If you are in crisis in Australia, call Lifeline on 13 11 14.</p>
+ psychologist. A therapist trained in habit reversal training or the ComB model gives you the best-evidenced help. The International OCD Foundation lists therapists who treat BFRBs at <a href="https://iocdf.org/find-help/">iocdf.org/find-help</a>. If you are in crisis in Australia, call Lifeline on 13 11 14.</p>
 
 {cta('how-to-stop-pulling-hair', 'For the ten seconds your hand starts moving', 'Press play when the urge hits.', FREE)}''',
  [('How do I stop pulling my hair right now?', 'Give your hands a competing job for about a minute: clench your fists, hold an object or sit on your hands. Then name the urge, breathe slowly and wait for it to peak and pass.'),
@@ -432,8 +431,7 @@ page('trichotillomania-and-adhd',
 
 <h2>When to get professional help</h2>
 <p>If you think you might have ADHD, start with your GP, who can refer you for an assessment. For pulling, a therapist trained in habit
- reversal training or the ComB model gives you the best-evidenced help, and the TLC Foundation lists BFRB clinicians at
- <a href="https://www.bfrb.org">bfrb.org</a>. Tell any clinician you see about both, because a plan that works for one should fit the
+ reversal training or the ComB model gives you the best-evidenced help, and the International OCD Foundation lists therapists who treat BFRBs at <a href="https://iocdf.org/find-help/">iocdf.org/find-help</a>. Tell any clinician you see about both, because a plan that works for one should fit the
  other. If you are in crisis in Australia, call Lifeline on 13 11 14.</p>
 
 {cta('trichotillomania-and-adhd', 'Short, guided, hands-free', "Something for the urge that you don't have to remember.",
@@ -489,7 +487,7 @@ page('trichotillomania-help-australia',
 <h2>Finding a psychologist who knows trich</h2>
 <p>BFRB specialists are thin on the ground in Australia, so widen the search:</p>
 <ul>
- <li><strong>The TLC Foundation directory</strong> at <a href="https://www.bfrb.org">bfrb.org</a> lists clinicians trained in body-focused repetitive behaviours, including some outside the US.{cite('tlc')}</li>
+ <li><strong>The International OCD Foundation directory</strong> at <a href="https://iocdf.org/find-help/">iocdf.org/find-help</a> lists therapists who treat body-focused repetitive behaviours.{cite('iocdf')} The listings we saw were in the US, so it may have few Australian clinicians.</li>
  <li><strong>The Australian Psychological Society's Find a Psychologist</strong> at <a href="https://www.findapsychologist.org.au">findapsychologist.org.au</a>. Search for "habit reversal", "BFRB" or "OCD and related disorders".</li>
  <li><strong>Video sessions</strong> mean the right psychologist doesn't have to be in your city.{cite('sa-medicare')}</li>
  <li>If you can't find a trich specialist, a psychologist experienced with <strong>OCD and related disorders</strong> and habit reversal training is a sound second choice.</li>
@@ -518,9 +516,9 @@ page('trichotillomania-help-australia',
      'Trich Reset has guided meditations, hypnosis and sleep tracks made only for hair pulling. ' + FREE)}''',
  [('Does Medicare cover a psychologist for trichotillomania?', 'Yes. With a mental health treatment plan from your GP, Medicare pays a rebate for up to 10 individual and 10 group sessions with an eligible psychologist, occupational therapist or social worker each calendar year. Many practices charge a gap on top.'),
   ('How do I get a mental health treatment plan?', 'Book a long appointment with your GP and say it is for a mental health treatment plan. Your GP assesses you, writes the plan and refers you for up to 6 sessions, then reviews you and can refer you for more.'),
-  ('How do I find a trichotillomania specialist in Australia?', 'Check the TLC Foundation directory at bfrb.org and the Australian Psychological Society\'s Find a Psychologist. Ask whether they use habit reversal training or the ComB model. Video sessions are claimable, so the psychologist does not have to be local.'),
+  ('How do I find a trichotillomania specialist in Australia?', "Start with the Australian Psychological Society's Find a Psychologist. The International OCD Foundation directory at iocdf.org/find-help is also worth a look, though the listings we saw were in the US. Ask whether they use habit reversal training or the ComB model. Video sessions are claimable, so the psychologist does not have to be local."),
   ('Can I see a dermatologist for hair pulling?', 'A dermatologist can rule out other causes of hair loss and help with the skin, but trichotillomania is treated with behaviour therapy, so you will also need a psychologist. Tell your GP it is hair pulling, not only hair loss.')],
- ['sa-medicare','betteraccess','farhat2020','tlc'])
+ ['sa-medicare','betteraccess','farhat2020','iocdf'])
 
 # 7 -------------------------------------------------------------- children
 page('trichotillomania-in-children',
@@ -528,7 +526,7 @@ page('trichotillomania-in-children',
  'Trichotillomania in children',
  'Learn · For parents',
  'Is your child pulling out their hair? What trichotillomania looks like at each age, what helps and what makes it worse, and how behaviour therapy helped 75% of children in a trial.',
- lambda: f'''Trichotillomania often starts in <strong>late childhood or early puberty</strong>,{cite('tlc')} and children respond well to
+ lambda: f'''Trichotillomania often starts in <strong>late childhood or early puberty</strong>,{cite('iocdf')} and children respond well to
  treatment. In a randomised trial of children aged 7 to 17, <strong>75%</strong> responded to eight weeks of behaviour therapy, compared with
  <strong>0%</strong> in the comparison group, and 7 to 9-year-olds did as well as the older children.{cite('franklin2011')} The most useful
  thing a parent can be is a calm coach, not the hair police.{cite('tlc2011')}''',
@@ -536,7 +534,7 @@ page('trichotillomania-in-children',
 <h2>What it looks like at each age</h2>
 <div class="table-wrap">
 <table>
- <caption>Hair pulling by age, and the parent's role (from the TLC expert guidelines)</caption>
+ <caption>Hair pulling by age, and the parent's role (from the 2011 expert guidelines)</caption>
  <thead><tr><th scope="col">Age</th><th scope="col">What it's like</th><th scope="col">Your role</th></tr></thead>
  <tbody>
   <tr><th scope="row">0 to 5 ("baby trich")</th><td>Often pulling while falling asleep, sucking a thumb or being comforted. Very young children often respond very well to treatment{cite('tlc2011')}</td><td>You run it, with a therapist's guidance: you set the routine and the environment{cite('tlc2011')}</td></tr>
@@ -566,13 +564,13 @@ page('trichotillomania-in-children',
 
 <h2>One thing to watch for</h2>
 <p>Some children chew or swallow the hair they pull. Over time this can form a hairball in the stomach (a trichobezoar), which may need
- surgery.{cite('tlc')} If your child eats hair and has stomach pain, nausea, vomiting or a poor appetite, see a doctor.</p>
+ surgery.{cite('iocdf')} If your child eats hair and has stomach pain, nausea, vomiting or a poor appetite, see a doctor.</p>
 
 <h2>Getting help</h2>
 <p>Start with your GP or paediatrician, and say "trichotillomania". Ask for a psychologist experienced with children and habit reversal
  training. In Australia, Medicare rebates up to 10 sessions a year with a mental health treatment plan, and a paediatrician can refer.
  Parents can join sessions as part of their child's plan.{cite('sa-medicare')} See <a href="/trichotillomania-help-australia">trichotillomania
- help in Australia</a> for the steps, and the TLC Foundation directory at <a href="https://www.bfrb.org">bfrb.org</a> to find a BFRB-trained clinician.</p>
+ help in Australia</a> for the steps, and the International OCD Foundation directory at <a href="https://iocdf.org/find-help/">iocdf.org/find-help</a> to look for a clinician who treats BFRBs.</p>
 
 <h2>Where Trich Reset fits</h2>
 <p><a href="/">Trich Reset</a> is made for teenagers and adults. For an older child, it gives them something private to press play on
@@ -583,8 +581,8 @@ page('trichotillomania-in-children',
  [('Why is my child pulling out their hair?', 'Hair pulling in children is usually linked to soothing, boredom, tiredness or stress, and often happens while falling asleep, reading or watching a screen. When it is repeated and hard to stop, it may be trichotillomania, which commonly starts in late childhood or early puberty.'),
   ('Will my child grow out of trichotillomania?', 'Some very young children ("baby trich") do, but many do not without help. The good news is that children respond well to behaviour therapy: in one trial, 75% of children aged 7 to 17 responded after eight weeks.'),
   ('Should I tell my child to stop pulling?', 'Telling them to stop, punishing or checking their hair tends to add shame, which can make pulling worse. Agree a quiet signal together, praise them for using strategies, and change the setup, such as tying hair back at bedtime.'),
-  ('What kind of doctor treats trichotillomania in children?', 'Start with your GP or paediatrician. Treatment is behaviour therapy with a psychologist, ideally one experienced with children and habit reversal training. The TLC Foundation lists BFRB clinicians at bfrb.org.')],
- ['tlc','franklin2011','tlc2011','farhat2020','sa-medicare'])
+  ('What kind of doctor treats trichotillomania in children?', 'Start with your GP or paediatrician. Treatment is behaviour therapy with a psychologist, ideally one experienced with children and habit reversal training. The International OCD Foundation lists therapists who treat BFRBs at iocdf.org/find-help.')],
+ ['iocdf','franklin2011','tlc2011','farhat2020','sa-medicare'])
 
 # ------------------------------------------------------------- templates
 NAV = '''<header class="nav dark-zone" id="nav">
